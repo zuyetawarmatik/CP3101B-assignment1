@@ -59,7 +59,7 @@ class Router {
     
     private function getController() {
 		/* Parse the URL: index?rt=controller/action */
-    	$route = (empty($_GET['rt'])) ? '' : $_GET['rt'];
+    	$route = (empty($_REQUEST['rt'])) ? '' : $_REQUEST['rt'];
 
     	if (empty($route))
     	{
