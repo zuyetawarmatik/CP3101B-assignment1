@@ -1,5 +1,4 @@
 <?php
-
     /*** include the controller class ***/
     include __SITE_PATH . '/application/' . 'BaseController.class.php';
 
@@ -14,7 +13,7 @@
 
     /*** auto load model classes ***/
     function __autoload($class_name) {
-        $filename = strtolower($class_name) . '.class.php';
+        $filename = $class_name.'.class.php';
         $file = __SITE_PATH . '/model/' . $filename;
 
         if (file_exists($file) == false)

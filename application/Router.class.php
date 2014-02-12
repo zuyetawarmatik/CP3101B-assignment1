@@ -2,11 +2,11 @@
 class Router {
     private $registry;
 
-    private $path;
+    private $controllerPath;
 
     private $args = array();
 
-    public $file;
+    public $controllerFile;
 
     public $controller;
     
@@ -20,32 +20,30 @@ class Router {
     function setPath($path) {
         if (is_dir($path) == false)
         {
-            throw new Exception('Invalid controller path: `' . $path . '`');
+            throw new Exception('Invalid controller path: ' . $path);
         }
-        $this->path = $path;
+        $this->controllerPath = $path;
     }
 
     /* Router load the controller */
     public function loader()
     {
-        /*** check the route ***/
+        /* Check the route */
         $this->getController();
         
-        /*** if the file is not there diaf ***/
-        if (is_readable($this->file) == false)
+        if (is_readable($this->controllerFile) == false)
         {
-            $this->file = $this->path.'/error404.php';
-            $this->controller = 'error404';
+            $this->controllerFile = $this->controllerPath.'/Error404Controller.class.php';
+            $this->controller = 'Error404Controller';
         }
     
-        /*** include the controller ***/
-        include $this->file;
+        include $this->controllerFile;
         
-        /*** a new controller class instance ***/
-        $class = $this->controller . 'Controller';
+        /* Load a new controller instance */
+        $class = $this->controller;
         $controller = new $class($this->registry);
         
-        /*** check if the action is callable ***/
+        /* Check if the action is callable */
         if (is_callable(array($controller, $this->action)) == false)
         {
             $action = 'index';
@@ -54,8 +52,43 @@ class Router {
         {
             $action = $this->action;
         }
-        /*** run the action ***/
+        
+        /* Run the action */
         $controller->$action();
+    }
+    
+    private function getController() {
+		/* Parse the URL: index?rt=controller/action */
+    	$route = (empty($_GET['rt'])) ? '' : $_GET['rt'];
+
+    	if (empty($route))
+    	{
+    		$route = 'index';
+    	}
+    	else
+    	{
+    		/* Get the parts of the route */
+    		$parts = explode('/', $route);
+    		$this->controller = ucfirst($parts[0]).'Controller';
+    		if (isset($parts[1]))
+    		{
+    			$this->action = $parts[1];
+    		}
+    	}
+
+    	if (empty($this->controller))
+    	{
+    		$this->controller = 'IndexController';
+    	}
+
+    	/* Get action */
+    	if (empty($this->action))
+    	{
+    		$this->action = 'index';
+    	}
+
+    	/* Set the file path */
+    	$this->controllerFile = $this->controllerPath .'/'. $this->controller . '.class.php';
     }
 
 }
