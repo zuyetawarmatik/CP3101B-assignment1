@@ -2,8 +2,13 @@
 
 class IndexController extends BaseController {
 	public function index() {
-		//$this->registry->template->welcome = 'Welcome to PHPRO MVC';
 		$this->registry->template->show('index');
+	}
+	
+	public function login() {
+		if ($_SERVER['REQUEST_METHOD'] == 'GET')
+			$this->registry->template->show('login');
+		if ($_SERVER['REQUEST_METHOD'] == 'POST');
 	}
 }
 

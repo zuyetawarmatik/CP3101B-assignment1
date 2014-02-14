@@ -23,6 +23,37 @@ body {
 	color: #444;
 }
 
+input {
+	font: inherit;
+}
+
+input[type="text"], input[type="password"], textarea {
+	border: 1px #ddd solid;
+	padding: 0.5rem 1.5rem;
+	border-radius: 2rem;
+	box-shadow: 1px 1px 1.5px #ccc inset;
+	color: #777;
+	font-style: italic;
+}
+
+button, input[type="submit"], a.button {
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 0.5rem 1.5rem;
+	border-radius: 2rem;
+	border: none;
+	color: white;
+	cursor: pointer;
+	background-color: #e7555f;
+	transition: background 0.5s ease-out;
+}
+
+button:hover, input[type="submit"]:hover, a.button:hover {
+	background-color: #ff7a63;
+	transition: background 0.5s ease-out;
+}
+
 #top-section {
 	position: fixed;
 	height: 6rem;
@@ -37,13 +68,18 @@ body {
 	margin: auto;
 }
 
-#logo {
+#logo a {
+	text-decoration: none;
 	font-weight: 600;
 	font-size: 2rem;
 	float: left;
 	margin-top: 1.75rem;
 	display: inline-block;
 	color: #e7555f;
+}
+
+#logo a:hover {
+	text-shadow: 0 0 2rem rgba(255, 255, 255, 0.9);
 }
 
 #nav-bar {
@@ -74,7 +110,7 @@ body {
 	transition: background 0.5s ease-out, color 0.5s ease-out, border 0.5s ease-out;
 }
 
-#nav-bar ul li a:hover, #nav-bar ul li a.selected {
+#nav-bar ul li a:hover, #nav-bar ul li.selected a {
 	transition: background 0.5s ease-out, color 0.5s ease-out, border 0.5s ease-out;
 	background-color: #e7555f;
 	color: white;
@@ -83,6 +119,7 @@ body {
 #main-section-content {
 	width: 96rem;
 	margin: 0 auto;
+	padding: 2rem 0;
 	border-left: 1px #ddd solid;
 	border-right: 1px #ddd solid;
 	border-bottom: 1px #ddd solid;
