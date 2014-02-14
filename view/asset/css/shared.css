@@ -9,6 +9,10 @@
 	}
 }
 
+:not(a) {
+	cursor: default;	
+}
+
 body {
 	background: #fafafa;
 	font-size: 1.6rem;
@@ -16,7 +20,7 @@ body {
 	font-weight: 300;
 	letter-spacing: 0.5px;
 	line-height: 140%;
-	color: #333;
+	color: #444;
 }
 
 #top-section {
@@ -33,9 +37,19 @@ body {
 	margin: auto;
 }
 
+#logo {
+	font-weight: 600;
+	font-size: 2rem;
+	float: left;
+	margin-top: 1.75rem;
+	display: inline-block;
+	color: #e7555f;
+}
+
 #nav-bar {
+	display: inline-block;
 	margin-top: 1.5rem;
-	margin-left: 64rem;	
+	float: right;
 }
 
 #nav-bar ul {
@@ -68,7 +82,22 @@ body {
 
 #main-section-content {
 	width: 96rem;
-	margin: auto;
+	margin: 0 auto;
 	border-left: 1px #ddd solid;
 	border-right: 1px #ddd solid;
+	border-bottom: 1px #ddd solid;
+}
+
+#footer-section {
+	border-bottom: 1px #ddd solid;
+}
+
+#footer-section-content {
+	background: #eee;
+	width: 92rem;
+	padding: 1rem 2rem;
+	margin: 0 auto;
+	border-left: 1px #ddd solid;
+	border-right: 1px #ddd solid;
+	border-bottom: 1px #ddd solid;
 }
