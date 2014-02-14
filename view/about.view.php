@@ -16,7 +16,7 @@
    								<span><img src="../view/asset/img/zuyetawarmatik.jpg" alt="avatar" /></span>
 							</div>
 							<h2>Bui Phuc Duyet</h2>
-							<p>github@zuyetawarmatik</p>
+							<p>zuyetawarmatik@github</p>
 						</a>
 					</li>
 					<li>
@@ -25,7 +25,7 @@
    								<span><img src="../view/asset/img/naviehuynh.jpg" alt="avatar" /></span>
 							</div>
 							<h2>Huynh Van Quang</h2>
-							<p>github@naviehuynh</p>
+							<p>naviehuynh@github</p>
 						</a>
 					</li>
 				</ul>
