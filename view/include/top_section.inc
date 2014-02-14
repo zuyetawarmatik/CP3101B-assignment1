@@ -10,7 +10,7 @@
 				<?php else: ?>
 				<li><a href="../index/login">Login</a></li>
 				<?php endif ?>
-				<li><a href="#">About</a></li>
+				<li><a href="../index/about">About</a></li>
 			</ul>
 		</nav>
 	</div>

@@ -5,6 +5,10 @@ class IndexController extends BaseController {
 		$this->registry->template->show('index');
 	}
 	
+	public function about() {
+		$this->registry->template->show('about');
+	}
+	
 	public function login() {
 		if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			$this->registry->template->show('login');
