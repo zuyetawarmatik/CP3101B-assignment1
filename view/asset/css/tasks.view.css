@@ -13,18 +13,37 @@
 	box-shadow: 0 1rem 1rem -1rem rgba(121,121,121, 0.2);
 }
 
-#title-section-content h1 {
-	position: absolute;
-  	top: 0; left: 0; bottom: 0; right: 0;
-  	margin: auto;
-  	width: 96rem;
-  	height: 3rem;
-	color: #e7555f;
-	text-align: center;
-	font-size: 5rem;
-	font-weight: 600;
+#title-section-content #title-box {
+	float: left;
+	margin-left: 2rem;
+	width: 58rem;
+	height: 15rem;
+	display: table;
 }
 
+#title-section-content h1 {
+	display: table-cell;
+	vertical-align: middle;
+	color: #e7555f;
+	text-align: left;
+	font-size: 5rem;
+	font-weight: 600;
+	line-height: 105%;
+}
+
+#title-section-content #btn-box {
+	margin-left: 60rem;
+	width: 36rem;
+	height: 3rem;
+	text-align: right;
+	padding: 6.5rem 0 5.5rem;
+}
+
+#btn-box a.button {
+	height: 5rem;
+	margin-right: 2rem;
+	margin-top: 10rem;
+}
 
 #main-section {
 	margin-top: 21rem;

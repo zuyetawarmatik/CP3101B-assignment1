@@ -8,7 +8,12 @@
 		<?php include('include/top_section.inc'); ?>
 		<section id="title-section">
 			<div id="title-section-content">
-				<h1><?php echo 'username' ?> To-do List</h1>
+				<div id="title-box">
+					<h1><?php echo 'username' ?> To-do List</h1>
+				</div>
+				<div id="btn-box">
+					<a class="button" href='/task/add'>Add new task</a>
+				</div>
 			</div>
 		</section>
 		<section id="main-section">
