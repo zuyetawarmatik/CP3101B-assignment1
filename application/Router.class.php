@@ -63,7 +63,7 @@ class Router {
 
     	if (empty($route))
     	{
-    		$route = 'index';
+    		$route = 'home';
     	}
     	else
     	{
@@ -78,7 +78,7 @@ class Router {
 
     	if (empty($this->controller))
     	{
-    		$this->controller = 'IndexController';
+    		$this->controller = 'HomeController';
     	}
 
     	/* Get action */

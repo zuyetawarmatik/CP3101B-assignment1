@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<?php include('include/head.inc'); ?>
-		<link rel="stylesheet" type="text/css" href="../view/asset/css/about.view.css" >
+		<link rel="stylesheet" type="text/css" href="<?php echo __BASE_URL?>view/asset/css/about.view.css" >
 	</head>
 	<body>
 		<?php include('include/top_section.inc'); ?>
@@ -13,7 +13,7 @@
 					<li>
 						<a>
 							<div class="avatar">
-   								<span><img src="../view/asset/img/zuyetawarmatik.jpg" alt="avatar" /></span>
+   								<span><img src="<?php echo __BASE_URL?>view/asset/img/zuyetawarmatik.jpg" alt="avatar" /></span>
 							</div>
 							<h2>Bui Phuc Duyet</h2>
 							<p>zuyetawarmatik@github</p>
@@ -22,7 +22,7 @@
 					<li>
 						<a>
 							<div class="avatar">
-   								<span><img src="../view/asset/img/naviehuynh.jpg" alt="avatar" /></span>
+   								<span><img src="<?php echo __BASE_URL?>view/asset/img/naviehuynh.jpg" alt="avatar" /></span>
 							</div>
 							<h2>Huynh Van Quang</h2>
 							<p>naviehuynh@github</p>
