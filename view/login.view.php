@@ -15,7 +15,7 @@
 								<label for="username">Username</label>
 							</td>
 							<td>
-								<input type="text">
+								<input type="text" name="username">
 							</td>
 						</tr>
 						<tr>
@@ -23,7 +23,7 @@
 								<label for="password">Password</label>
 							</td>
 							<td>
-								<input type="password">
+								<input type="password" name="password">
 							</td>
 						</tr>
 						<tr>
