@@ -3,7 +3,7 @@
 		<div id="logo"><a href="../index/index">Tasaka Managara&#8482;</a></div>
 		<nav id="nav-bar">
 			<ul>
-				<?php if ($_SESSION['login']): ?>
+				<?php if (isset($_SESSION['login'])): ?>
 				<li><a href="#">Tasks</a></li>
 				<li><a href="#">Account</a></li>
 				<li><a href="#">Logout</a></li>
