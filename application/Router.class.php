@@ -28,33 +28,30 @@ class Router {
     /* Router load the controller */
     public function loader()
     {
-        /* Check the route */
-        $this->getController();
+    	include $this->controllerPath.'/Error404Controller.class.php';
+    	
+    	/* Check the route */
+    	$this->getController();
+    	
+    	if (!is_readable($this->controllerFile))
+    	{
+    		return (new Error404Controller($this->registry))->index();
+    	}
         
-        if (is_readable($this->controllerFile) == false)
-        {
-            $this->controllerFile = $this->controllerPath.'/Error404Controller.class.php';
-            $this->controller = 'Error404Controller';
-        }
-    
         include $this->controllerFile;
         
         /* Load a new controller instance */
-        $class = $this->controller;
-        $controller = new $class($this->registry);
+        $controller = new $this->controller($this->registry);
         
         /* Check if the action is callable */
-        if (is_callable(array($controller, $this->action)) == false)
-        {
-            $action = 'index';
-        }
-        else
-        {
+        if (!is_callable(array($controller, $this->action))) {
+        	return (new Error404Controller($this->registry))->index();
+        } else {
             $action = $this->action;
+            
+            /* Run the action */
+            return $controller->$action();
         }
-        
-        /* Run the action */
-        $controller->$action();
     }
     
     private function getController() {
