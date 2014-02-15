@@ -21,7 +21,7 @@
 				<ul id="tasks-list">
 					<li>
 						<h2>Task name</h2>
-						<p>This is for task description</p>
+						<p>This is for task description<br>Start from: Insert datetime here</p>
 						<form method='POST' action='/task/finish1block'>
 							<input type="hidden" value="task_id">
 							<ul class="task-blocks-list">
@@ -37,7 +37,7 @@
 					</li>
 					<li>
 						<h2>Task name</h2>
-						<p>This is for task description</p>
+						<p>This is for task description<br>Start from: Insert datetime here</p>
 						<form method='POST' action='/task/finish1block'>
 							<input type="hidden" value="task_id">
 							<ul class="task-blocks-list">
