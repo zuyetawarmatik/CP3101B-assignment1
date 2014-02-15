@@ -1,6 +1,6 @@
 <?php
 
-Abstract Class BaseController {
+abstract class BaseController {
 
 	protected $registry;
 
