@@ -4,7 +4,7 @@ CREATE SCHEMA "public";
 CREATE TABLE "users" (
   id integer PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
-  -- email VARCHAR(200),
+  email VARCHAR(200),
   password VARCHAR(50)
 );
 
