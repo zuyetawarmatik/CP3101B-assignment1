@@ -2,13 +2,13 @@
 <html lang="en-US">
 	<head>
 		<?php include('include/head.inc'); ?>
-		<link rel="stylesheet" type="text/css" href="../view/asset/css/register.view.css" >
+		<link rel="stylesheet" type="text/css" href="<?php echo __BASE_URL?>view/asset/css/register.view.css" >
 	</head>
 	<body>
 		<?php include('include/top_section.inc'); ?>
 		<section id="main-section">
 			<div id="main-section-content">
-				<form method="POST" action="../index/register">
+				<form method="POST" action="<?php echo __BASE_URL?>index/register">
 					<table>
 						<tr>
 							<td>
