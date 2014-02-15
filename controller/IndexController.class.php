@@ -6,13 +6,22 @@ class IndexController extends BaseController {
 	}
 	
 	public function about() {
+		$this->registry->template->highlight = 'about';
 		$this->registry->template->show('about');
 	}
 	
 	public function login() {
-		if ($_SERVER['REQUEST_METHOD'] == 'GET')
+		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+			$this->registry->template->highlight = 'login';
 			$this->registry->template->show('login');
-		if ($_SERVER['REQUEST_METHOD'] == 'POST');
+		} else if ($_SERVER['REQUEST_METHOD'] == 'POST');
+	}
+	
+	public function register() {
+		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+			$this->registry->template->highlight = 'register';
+			$this->registry->template->show('register');
+		} else if ($_SERVER['REQUEST_METHOD'] == 'POST');
 	}
 }
 
