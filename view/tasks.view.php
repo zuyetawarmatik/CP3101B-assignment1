@@ -7,7 +7,9 @@
 	<body>
 		<?php include('include/top_section.inc'); ?>
 		<section id="title-section">
-			<h1><?php echo 'username' ?> To-do List</h1>
+			<div id="title-section-content">
+				<h1><?php echo 'username' ?> To-do List</h1>
+			</div>
 		</section>
 		<section id="main-section">
 			<div id="main-section-content">
