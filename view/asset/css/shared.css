@@ -13,6 +13,10 @@
 	cursor: default;	
 }
 
+::-moz-focus-inner {
+	border: none;
+}
+
 body {
 	background: #fafafa;
 	font-size: 1.6rem;
@@ -34,6 +38,12 @@ input[type="text"], input[type="password"], textarea {
 	box-shadow: 1px 1px 1.5px #ccc inset;
 	color: #777;
 	font-style: italic;
+}
+
+input[type="text"]:hover, input[type="password"]:hover, textarea:hover, input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+	background: #ff7a63;
+	color: #fff;
+	transition: background 0.5s ease-out;
 }
 
 button, input[type="submit"], a.button {

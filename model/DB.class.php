@@ -18,9 +18,8 @@ class DB {
 		
 		if (!self::$instance)
 		{
-      $db_conn_string = sprintf('%s:dbname=%s;host=%s;user=%s;password=%s',$db_config['db_type'],$db_config['db_name'],$db_config['db_host'],$db_config['db_username'],$db_config['db_password']);
-
-			self::$instance = new PDO($db_conn_string);
+			$db_conn_string = sprintf('%s:host=%s;port=%s;dbname=%s',$db_config['db_type'],$db_config['db_host'],$db_config['db_port'],$db_config['db_name']);
+			self::$instance = new PDO($db_conn_string,$db_config['db_username'],$db_config['db_password']);
 			self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		return self::$instance;

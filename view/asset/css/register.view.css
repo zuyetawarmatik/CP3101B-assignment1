@@ -3,7 +3,7 @@
 }
 
 table {
-	width: 35rem;
+	width: 40rem;
 	margin: 0 auto;
 }
 
@@ -13,7 +13,7 @@ td {
 }
 
 td:first-child {
-	width: 15rem;
+	width: 20rem;
 }
 
 td:last-child {
