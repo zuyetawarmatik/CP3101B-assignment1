@@ -3,16 +3,17 @@
 }
 
 table {
-	width: 35rem;
+	width: 40rem;
 	margin: 0 auto;
 }
 
 td {
 	padding: 2rem 2rem 2rem 0;
+	vertical-align: middle;
 }
 
 td:first-child {
-	width: 15rem;
+	width: 20rem;
 }
 
 td:last-child {

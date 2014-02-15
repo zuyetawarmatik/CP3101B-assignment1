@@ -9,6 +9,7 @@ table {
 
 td {
 	padding: 2rem 2rem 2rem 0;
+	vertical-align: middle;
 }
 
 td:first-child {

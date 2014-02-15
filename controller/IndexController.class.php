@@ -11,17 +11,25 @@ class IndexController extends BaseController {
 	}
 	
 	public function login() {
-		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-			$this->registry->template->highlight = 'login';
-			$this->registry->template->show('login');
-		} else if ($_SERVER['REQUEST_METHOD'] == 'POST');
+		if (!isset($_SESSION['login'])) {
+			if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+				$this->registry->template->highlight = 'login';
+				$this->registry->template->show('login');
+			} else if ($_SERVER['REQUEST_METHOD'] == 'POST');
+		} else {
+			index();
+		}
 	}
 	
 	public function register() {
-		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-			$this->registry->template->highlight = 'register';
-			$this->registry->template->show('register');
-		} else if ($_SERVER['REQUEST_METHOD'] == 'POST');
+		if (!isset($_SESSION['login'])) {
+			if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+				$this->registry->template->highlight = 'register';
+				$this->registry->template->show('register');
+			} else if ($_SERVER['REQUEST_METHOD'] == 'POST');
+		} else {
+			index();
+		}
 	}
 }
 

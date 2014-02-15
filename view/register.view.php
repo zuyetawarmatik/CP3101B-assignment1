@@ -20,6 +20,14 @@
 						</tr>
 						<tr>
 							<td>
+								<label for="display_name">Display name</label>
+							</td>
+							<td>
+								<input type="text">
+							</td>
+						</tr>
+						<tr>
+							<td>
 								<label for="password">Password</label>
 							</td>
 							<td>
