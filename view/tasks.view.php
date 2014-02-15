@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<?php include('include/head.inc'); ?>
-		<link rel="stylesheet" type="text/css" href="<?php echo __BASE_URL?>/view/asset/css/tasks.view.css" >
+		<link rel="stylesheet" type="text/css" href="<?php echo __BASE_URL?>view/asset/css/tasks.view.css" >
 	</head>
 	<body>
 		<?php include('include/top_section.inc'); ?>
@@ -12,7 +12,7 @@
 					<h1><?php echo 'username' ?> To-do List</h1>
 				</div>
 				<div id="btn-box">
-					<a class="button" href='../task/create'>Add new task</a>
+					<a class="button" href='<?php echo __BASE_URL?>task/create'>Add new task</a>
 				</div>
 			</div>
 		</section>
