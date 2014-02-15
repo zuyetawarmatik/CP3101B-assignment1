@@ -2,13 +2,13 @@
 <html lang="en-US">
 	<head>
 		<?php include('include/head.inc'); ?>
-		<link rel="stylesheet" type="text/css" href="../view/asset/css/login.view.css" >
+		<link rel="stylesheet" type="text/css" href="/view/asset/css/login.view.css" >
 	</head>
 	<body>
 		<?php include('include/top_section.inc'); ?>
 		<section id="main-section">
 			<div id="main-section-content">
-				<form method="POST" action="../index/login">
+				<form method="POST" action="<?php echo __BASE_URL?>home/login">
 					<table>
 						<tr>
 							<td>

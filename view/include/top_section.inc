@@ -1,6 +1,6 @@
 <section id="top-section">
 	<div id="top-section-content">
-		<div id="logo"><a href="../index/index">Tasaka Managara&#8482;</a></div>
+		<div id="logo"><a href="<?php echo __BASE_URL?>home/index">Tasaka Managara&#8482;</a></div>
 		<nav id="nav-bar">
 			<ul>
 				<?php if (isset($_SESSION['login'])): ?>
@@ -8,9 +8,9 @@
 				<li><a href="#">Account</a></li>
 				<li><a href="#">Logout</a></li>
 				<?php else: ?>
-				<li><a href="../index/login">Login</a></li>
+				<li><a href="<?php echo __BASE_URL?>home/login">Login</a></li>
 				<?php endif ?>
-				<li><a href="../index/about">About</a></li>
+				<li><a href="<?php echo __BASE_URL?>home/about">About</a></li>
 			</ul>
 		</nav>
 	</div>
