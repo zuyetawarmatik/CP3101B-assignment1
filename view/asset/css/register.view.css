@@ -20,7 +20,7 @@ td:last-child {
 	width: 99%;
 }
 
-td:last-child input[type="text"], td:last-child input[type="password"] {
+td:last-child input[type="text"], td:last-child input[type="password"], td:last-child input[type="email"] {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	width: 100%;
