@@ -25,7 +25,7 @@
 					foreach ($tasks as $task) {
 				?>
 					<li>
-					<h2><?php echo $task->name ?></h2>
+					<a href="<?php echo __BASE_URL . 'task/edit?task_id=' . $task->id ?>"><h2><?php echo $task->name?></h2></a>
 					<p><?php echo $task->description ?></p>
 					<form method='POST' action='<?php echo __BASE_URL ?>task/nextblock'>
 						<input type="hidden" name="task_id" value="<?php echo $task->id?>">

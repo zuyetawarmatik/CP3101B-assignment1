@@ -62,7 +62,12 @@
 #tasks-list > li:not(:first-child) {
 	border-top: 1px #ddd solid;
 }
-
+#tasks-list > li a {
+	text-decoration: none;
+}
+#tasks-list > li a > h2 {
+	cursor: pointer; cursor: hand;
+}
 #tasks-list > li h2 {
 	color: #2b9891;
 	font-weight: 600;
