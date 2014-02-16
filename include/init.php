@@ -2,6 +2,9 @@
     /*** include the controller class ***/
     include __SITE_PATH . '/application/' . 'BaseController.class.php';
 
+    /*** include the model class ***/
+    include __SITE_PATH . '/application/' . 'BaseModel.class.php';
+
     /*** include the registry class ***/
     include __SITE_PATH . '/application/' . 'Registry.class.php';
 

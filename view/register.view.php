@@ -8,7 +8,7 @@
 		<?php include('include/top_section.inc'); ?>
 		<section id="main-section">
 			<div id="main-section-content">
-				<form method="POST" action="<?php echo __BASE_URL?>index/register">
+				<form method="POST" action="<?php echo __BASE_URL?>home/register">
 					<table>
 						<tr>
 							<td>
