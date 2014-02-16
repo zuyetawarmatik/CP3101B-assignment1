@@ -1,0 +1,120 @@
+#title-section {
+	position: fixed;
+	width: 100%;
+	top: 6rem;
+	height: 15rem;
+	background: rgba(250, 250, 250, 0.95);
+}
+
+#title-section-content {
+	margin: auto;
+	width: 96rem;
+	height: 100%;
+	box-shadow: 0 1rem 1rem -1rem rgba(121,121,121, 0.2);
+}
+
+#title-section-content #title-box {
+	float: left;
+	margin-left: 2rem;
+	width: 58rem;
+	height: 15rem;
+	display: table;
+}
+
+#title-section-content h1 {
+	display: table-cell;
+	vertical-align: middle;
+	color: #e7555f;
+	text-align: left;
+	font-size: 5rem;
+	font-weight: 600;
+	line-height: 105%;
+}
+
+#title-section-content #btn-box {
+	margin-left: 60rem;
+	width: 36rem;
+	height: 3rem;
+	text-align: right;
+	padding: 6.5rem 0 5.5rem;
+}
+
+#btn-box a.button {
+	height: 5rem;
+	margin-right: 2rem;
+	margin-top: 10rem;
+}
+
+#main-section {
+	margin-top: 21rem;
+}
+
+#main-section-content {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#tasks-list > li {
+	background: #fff;
+	padding: 5rem 0;
+}
+
+#tasks-list > li:not(:first-child) {
+	border-top: 1px #ddd solid;
+}
+
+#tasks-list > li h2 {
+	color: #2b9891;
+	font-weight: 600;
+	font-size: 3rem;
+	margin: 0 7rem 2rem;
+}
+
+#tasks-list > li p {
+	font-weight: 200;
+	font-style: italic;
+	margin: 0 7rem 3rem;	
+}
+
+.task-blocks-list {
+	margin: 0 7rem 0;
+}
+
+.task-blocks-list li {
+	display: inline-block;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+}
+
+.task-blocks-list li button {
+	border: 0.7rem white solid;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+}
+
+.task-blocks-list li button.task-done-block {
+	box-shadow: 0 0 0.1rem #e7555f;
+	cursor: default;
+}
+
+.task-blocks-list li button.task-done-block {
+	background: #e7555f;
+}
+
+.task-blocks-list li button.task-current-block {
+	background: #2b9891;
+	box-shadow: 0 0 0.1rem #2b9891;
+}
+
+.task-blocks-list li button.task-current-block:hover {
+	background: #ff7a63;
+	box-shadow: 0 0 0.1rem #ff7a63, 0 0 1.5rem rgba(121, 121, 121, 0.2) inset;
+	transition: background 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+.task-blocks-list li button.task-undone-block {
+	background: #ddd;
+	box-shadow: 0 0 0.1rem #aaa;
+	cursor: default;
+}

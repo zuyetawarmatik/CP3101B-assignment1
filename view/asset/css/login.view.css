@@ -12,10 +12,6 @@ td {
 	vertical-align: middle;
 }
 
-td:first-child {
-	width: 15rem;
-}
-
 td:last-child {
 	width: 99%;
 }

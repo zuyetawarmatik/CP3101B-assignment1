@@ -23,7 +23,7 @@
 								<label for="email">Email</label>
 							</td>
 							<td>
-								<input type="text" name="email">
+								<input type="email" name="email">
 							</td>
 						</tr>
 						<tr>
@@ -32,6 +32,14 @@
 							</td>
 							<td>
 								<input type="password" name="password">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="retype_password">Retype password</label>
+							</td>
+							<td>
+								<input type="password" name="retype_password">
 							</td>
 						</tr>
 						<tr>
