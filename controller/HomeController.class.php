@@ -49,7 +49,11 @@ class HomeController extends BaseController {
 				$password = $_POST["password"];
 				$user = User::getUserByUsernameAndPassword($username,$password);
 				if($user != null){
-					$_SESSION['login'] = $user;
+					$_SESSION['login'] = Array(
+						"id" => $user->id,
+						"username" => $user->username,
+						"email" => $user->email
+					);
 					//TODO: redirect to all tasks pages
 					header("Location:". __BASE_URL);
 				}else{

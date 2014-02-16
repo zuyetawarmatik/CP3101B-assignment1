@@ -16,7 +16,10 @@ CREATE TABLE "tasks" (
 	user_id integer 
 	constraint FK_task_user
 	REFERENCES users(id) ,
-	description VARCHAR(200)
+	name VARCHAR(50),
+	description VARCHAR(200),
+	blocks integer,
+	current_block integer default 0
 );
 
 
