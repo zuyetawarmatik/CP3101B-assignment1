@@ -12,7 +12,7 @@ CREATE TABLE "users" (
 );
 
 CREATE TABLE "tasks" (
-	id INTEGER NOT NULL default nextval('user_id_seq') PRIMARY KEY,
+	id INTEGER NOT NULL default nextval('task_id_seq') PRIMARY KEY,
 	user_id integer 
 	constraint FK_task_user
 	REFERENCES users(id) ,
