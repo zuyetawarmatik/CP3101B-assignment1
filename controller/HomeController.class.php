@@ -26,7 +26,7 @@ class HomeController extends BaseController {
 				$new_user->username = $username;
 				$new_user->email = $email;
 				$new_user->password = $password;
-				if ($new_user->save()){
+				if ($new_user->create()){
 					header("Location:". __BASE_URL . "home/login");
 				}else{
 					$this->registry->template->highlight = 'register';
@@ -55,7 +55,7 @@ class HomeController extends BaseController {
 						"email" => $user->email
 					);
 					//TODO: redirect to all tasks pages
-					header("Location:". __BASE_URL);
+					header("Location:". __BASE_URL . 'task/index');
 				}else{
 					$this->registry->template->highlight = 'login';
 					$this->registry->template->show('login');
