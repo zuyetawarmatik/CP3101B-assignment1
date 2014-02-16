@@ -6,7 +6,7 @@
 				<?php if (isset($_SESSION['login'])): ?>
 				<li <?php if ($highlight == 'tasks') echo 'class="selected"' ?>><a href="#">Tasks</a></li>
 				<li <?php if ($highlight == 'account') echo 'class="selected"' ?>><a href="#">Account</a></li>
-				<li><a href="#">Logout</a></li>
+				<li><a href="<?php echo __BASE_URL . 'home/logout'?>">Logout</a></li>
 				<?php else: ?>
 				<li <?php if ($highlight == 'login') echo 'class="selected"' ?>><a href="<?php echo __BASE_URL?>home/login">Login</a></li>
 				<li <?php if ($highlight == 'register') echo 'class="selected"' ?>><a href="<?php echo __BASE_URL?>home/register">Register</a></li>
