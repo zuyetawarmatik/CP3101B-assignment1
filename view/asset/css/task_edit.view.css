@@ -29,15 +29,25 @@ td:last-child input[type="text"], td:last-child input[type="password"], td:last-
 
 tr:last-child div {
 	display: inline-block;
+	width: 100%;
 	float: right;
 }
 
 tr:last-child div a.button {
+	float: left;
+	display: block;
 	background: #aaa;
 	transition: background 0.5s ease-out;
+	text-align: center;
+	width: 60%;
 }
 
 tr:last-child div a.button:hover {
 	background-color: #ff7a63;
 	transition: background 0.5s ease-out;
+}
+
+tr:last-child div input[type="submit"] {
+	float: right;
+	width: 30%;
 }

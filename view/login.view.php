@@ -9,6 +9,11 @@
 		<section id="main-section">
 			<div id="main-section-content">
 				<form method="POST" action="<?php echo __BASE_URL?>home/login">
+					<?php if (isset($error)):?>
+					<div id="error">
+						<?php echo $error?>
+					</div>
+					<?php endif?>
 					<table>
 						<tr>
 							<td>

@@ -13,6 +13,7 @@ td {
 }
 
 td:last-child {
+	padding-right: 0;
 	width: 99%;
 }
 
@@ -35,4 +36,14 @@ tr:last-child div a.button {
 tr:last-child div a.button:hover {
 	background-color: #ff7a63;
 	transition: background 0.5s ease-out;
+}
+
+#error {
+	width: 35rem;
+	margin: 0 auto;
+	text-align: center;
+	background: #E7555F;
+	border-radius: 2rem;
+	padding: 0.5rem 0;
+	color: #fff;
 }

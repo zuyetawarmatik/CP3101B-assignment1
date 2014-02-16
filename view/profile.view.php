@@ -16,7 +16,7 @@
 							</td>
 							<td>
 								<!-- TODO: Style readonly -->
-								<input type="text" name="username"  readonly value="<?echo $username?>">
+								<input type="text" name="username"  readonly value="<?php echo $username?>">
 							</td>
 						</tr>
 						<tr>
@@ -24,7 +24,7 @@
 								<label for="email">Email</label>
 							</td>
 							<td>
-								<input type="email" name="email"  value="<?echo $email?>">
+								<input type="email" name="email"  value="<?php echo $email?>">
 							</td>
 						</tr>
 						<tr>

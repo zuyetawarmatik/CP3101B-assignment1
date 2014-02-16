@@ -28,7 +28,7 @@ class HomeController extends BaseController {
 				$new_user->password = $password;
 				if ($new_user->create()){
 					header("Location:". __BASE_URL . "home/login");
-				}else{
+				} else{
 					$this->registry->template->highlight = 'register';
 					$this->registry->template->show('register');
 				}
@@ -45,23 +45,22 @@ class HomeController extends BaseController {
 				$this->registry->template->show('login');
 			} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$username = $_POST["username"];
-				//TODO: hash and salt
+				// TODO: hash and salt
 				$password = $_POST["password"];
 				$user = User::getUserByUsernameAndPassword($username,$password);
-				if($user != null){
+				if ($user != null){
 					$_SESSION['login'] = Array(
 						"id" => $user->id,
 						"username" => $user->username,
 						"email" => $user->email
 					);
-					//TODO: redirect to all tasks pages
+					// TODO: redirect to all tasks pages
 					header("Location:". __BASE_URL . 'task/index');
-				}else{
-					$this->registry->template->error = "wrong username or password, or user doesn't exist";
+				} else {
+					$this->registry->template->error = "Wrong username or password, or user doesn't exist.";
 					$this->registry->template->username = $username;
 					$this->registry->template->highlight = 'login';
 					$this->registry->template->show('login');
-				
 				}
 			};
 		} else {
