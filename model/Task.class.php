@@ -9,9 +9,21 @@ Class Task extends BaseModel{
 			return false;
 		}
 	}
+	public function getEstFinishTime(){
+		if ($this->current_block==0){
+			return "Unavailable.";
+		}else if ($this->blocks == $this->current_block){
+			return "Task completed.";
+		}
+
+		$then = $this->created_time;
+		$now = time();
+		$estimated = $then + ($now-$then)*($this->blocks/$this->current_block);
+		return "Finish on (est.): " . Util::timestampToString($estimated);
+	}
 	public function create() {
-		$stmt = self::$db->prepare("INSERT INTO TASKS (user_id,name,description,blocks) VALUES (?,?,?,?)");
-		if ($stmt->execute(array($this->user_id,$this->name,$this->description,$this->blocks))) {
+		$stmt = self::$db->prepare("INSERT INTO TASKS (user_id,name,description,blocks,created_time) VALUES (?,?,?,?,(?)::timestamp)");
+		if ($stmt->execute(array($this->user_id,$this->name,$this->description,$this->blocks,date('Y-m-d H:i:s')))) {
 			//TODO:  update id
 			return true;
 		}else{
@@ -30,6 +42,7 @@ Class Task extends BaseModel{
 				$task->description = $row['description'];
 				$task->blocks = $row['blocks'];
 				$task->current_block = $row['current_block'];
+				$task->created_time = strtotime($row['created_time']);
 
 				return $task;
 			}
@@ -49,6 +62,7 @@ Class Task extends BaseModel{
 				$task->description = $row['description'];
 				$task->blocks = $row['blocks'];
 				$task->current_block = $row['current_block'];
+				$task->created_time = strtotime($row['created_time']);
 
 				return $task;
 			}
@@ -73,6 +87,7 @@ Class Task extends BaseModel{
 				$task->description = $row['description'];
 				$task->blocks = $row['blocks'];
 				$task->current_block = $row['current_block'];
+				$task->created_time = strtotime($row['created_time']);
 
 				array_push($tasks,$task);
 			}

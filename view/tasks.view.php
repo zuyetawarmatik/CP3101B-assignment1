@@ -27,6 +27,7 @@
 					<li>
 					<a href="<?php echo __BASE_URL . 'task/edit?task_id=' . $task->id ?>"><h2><?php echo $task->name?></h2></a>
 					<p><?php echo $task->description ?></p>
+					<p><?php echo $task->getEstFinishTime() ?></p>
 					<form method='POST' action='<?php echo __BASE_URL ?>task/nextblock'>
 						<input type="hidden" name="task_id" value="<?php echo $task->id?>">
 							<ul class="task-blocks-list">

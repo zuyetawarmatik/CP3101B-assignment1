@@ -19,7 +19,8 @@ CREATE TABLE "tasks" (
 	name VARCHAR(50),
 	description VARCHAR(200),
 	blocks integer,
-	current_block integer default 0
+	current_block integer default 0,
+	created_time TIMESTAMP
 );
 
 

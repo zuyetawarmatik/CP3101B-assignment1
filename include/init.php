@@ -14,6 +14,9 @@
     /*** include the template class ***/
     include __SITE_PATH . '/application/' . 'Template.class.php';
 
+    /*** include the template class ***/
+    include __SITE_PATH . '/include/' . 'Util.class.php';
+
     /*** auto load model classes ***/
     function __autoload($class_name) {
         $filename = $class_name.'.class.php';
