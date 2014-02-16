@@ -27,8 +27,8 @@
 					<li>
 					<h2><?php echo $task->name ?></h2>
 					<p><?php echo $task->description ?></p>
-						<form method='POST' action='/task/finish1block'>
-						<input type="hidden" name="task_id" value="<?php echo $task->user_id?>">
+					<form method='POST' action='<?php echo __BASE_URL ?>task/nextblock'>
+						<input type="hidden" name="task_id" value="<?php echo $task->id?>">
 							<ul class="task-blocks-list">
 							<?php for ($i = 0; $i < $task->blocks; $i++):?>
 								<?php if ($i<$task->current_block): ?>

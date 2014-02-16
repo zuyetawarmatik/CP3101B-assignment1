@@ -14,7 +14,21 @@ class TaskController extends BaseController {
 			//return (new Error404Controller($this->registry))->index();	
 		//}
 	}
-	
+	public function nextblock(){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			print_r($_POST);
+			$task_id = $_POST['task_id'];
+			$task = Task::getTaskById($task_id);
+			$task->current_block = min($task->blocks, $task->current_block+1);
+
+			if ($task->save()){
+				header("Location: " . __BASE_URL . "task/");
+			}else{
+				echo "error saving task current_block";
+			}
+
+		}
+	}
 	public function create() {
 		//if (isset($_SESSION['login'])) {
 			if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -32,7 +46,7 @@ class TaskController extends BaseController {
 				$task->description = $desc;
 				$task->blocks = $blocks;
 
-				if ($task->save()){
+				if ($task->create()){
 					echo 'saved';
 					header('Location:' . __BASE_URL . 'task/');
 				}else{
