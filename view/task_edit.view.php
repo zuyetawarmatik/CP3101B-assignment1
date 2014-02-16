@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<?php include('include/head.inc'); ?>
-		<link rel="stylesheet" type="text/css" href="<?php echo __BASE_URL?>view/asset/css/task_create.view.css" >
+		<link rel="stylesheet" type="text/css" href="<?php echo __BASE_URL?>view/asset/css/task_edit.view.css" >
 	</head>
 	<body>
 		<?php include('include/top_section.inc'); ?>

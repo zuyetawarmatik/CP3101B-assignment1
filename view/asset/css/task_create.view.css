@@ -17,6 +17,7 @@ td:first-child {
 }
 
 td:last-child {
+	padding-right: 0;
 	width: 99%;
 }
 
