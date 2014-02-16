@@ -15,7 +15,7 @@
 								<label for="username">Username</label>
 							</td>
 							<td>
-							<input type="text" name="username" value="">
+							<input type="text" name="username" value="<?php echo isset($username)?$username:"" ?>">
 							</td>
 						</tr>
 						<tr>
