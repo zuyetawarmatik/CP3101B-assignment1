@@ -57,12 +57,10 @@ class HomeController extends BaseController {
 					//TODO: redirect to all tasks pages
 					header("Location:". __BASE_URL . 'task/index');
 				}else{
+					$this->registry->template->error = "wrong username or password, or user doesn't exist";
+					$this->registry->template->username = $username;
 					$this->registry->template->highlight = 'login';
 					$this->registry->template->show('login');
-					$this->registry->template->vars = array(
-						"error" => "wrong username or password, or user doesn't exist",
-						"username" => $username
-					);
 				
 				}
 			};
