@@ -38,7 +38,9 @@
 						<tr>
 							<td colspan="2">
 								<div>
+									<!-- TODO: move revert button to left hand side -->
 									<a style="<?php if($current_block==0) echo 'display:none' ?>" class="button" href="<?php echo __BASE_URL . 'task/revertblock?task_id=' . $task_id ?>">Revert work unit</a>
+									<a class="button" href="<?php echo __BASE_URL . 'task'?>">Back</a>
 									<input type="submit" value="Save">
 								</div>
 							</td>
