@@ -2,8 +2,8 @@
 
 Class User extends BaseModel{
 	public function save(){
-		$stmt = self::$db->prepare("UPDATE users SET email = ? WHERE id = ?");
-		if ($stmt->execute(array($this->email,$this->id))) {
+		$stmt = self::$db->prepare("UPDATE users SET email = ?, password = ? WHERE id = ?");
+		if ($stmt->execute(array($this->email,$this->password,$this->id))) {
 			return true;
 		}else{
 			return false;
@@ -26,6 +26,7 @@ Class User extends BaseModel{
 				$user->username = $row['username'];
 				$user->email = $row['email'];
 				$user->id = $row['id'];
+				$user->password = $row['password'];
 
 				return $user;
 			}
@@ -42,6 +43,7 @@ Class User extends BaseModel{
 				$user->username = $row['username'];
 				$user->email = $row['email'];
 				$user->id = $row['id'];
+				$user->password = $row['password'];
 
 				return $user;
 			}
