@@ -8,7 +8,7 @@ CREATE TABLE "users" (
 	id INTEGER NOT NULL default nextval('user_id_seq') PRIMARY KEY,
 	username VARCHAR(50) NOT NULL UNIQUE,
 	email VARCHAR(200) NOT NULL UNIQUE,
-	password VARCHAR(50)
+	password VARCHAR(200)
 );
 
 CREATE TABLE "tasks" (

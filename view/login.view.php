@@ -34,7 +34,7 @@
 						<tr>
 							<td colspan="2">
 								<div>
-									<a class="button">Register</a>
+									<a class="button" href="<?php echo __BASE_URL . "home/register" ?>">Register</a>
 									<input type="submit" value="Login">
 								</div>
 							</td>

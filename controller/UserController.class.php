@@ -10,10 +10,10 @@ class UserController extends BaseController {
 				$email = $_POST['email'];
 				// TODO: hash and salt
 				$oldpassword = $_POST['oldpassword'];
-				$newpassword = $_POST['newpassword'];
+				$newpassword = Util::hash($_POST['newpassword']);
 				
 				if($oldpassword!="" && $newpassword!=""){
-					$user = User::getUserByUsernameAndPassword($_SESSION['login']['username'],$oldpassword);
+					$user = User::getAuthenticatedUser($_SESSION['login']['username'],$oldpassword);
 					if (!$user==null){
 						echo $newpassword;
 						$user->password = $newpassword;

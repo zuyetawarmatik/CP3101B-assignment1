@@ -34,10 +34,13 @@ Class User extends BaseModel{
 			return null;
 		}
 	}
-	public static function getUserByUsernameAndPassword($username,$password){
-		$stmt = self::$db->prepare("SELECT * FROM USERS WHERE username = ?  AND password = ?");
-		if ($stmt->execute(array($username,$password))) {
+	public static function getAuthenticatedUser($username,$input_pass){
+		$stmt = self::$db->prepare("SELECT * FROM USERS WHERE username = ?");
+		if ($stmt->execute(array($username))) {
 			while ($row = $stmt->fetch()) {
+				if (!Util::hash_compare($input_pass,$row['password'])){
+					return null;
+				}
 				$user = new User();
 
 				$user->username = $row['username'];
@@ -47,6 +50,7 @@ Class User extends BaseModel{
 
 				return $user;
 			}
+			return null;
 		}else{
 			return null;
 		}

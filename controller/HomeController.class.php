@@ -18,7 +18,8 @@ class HomeController extends BaseController {
 			} else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$username = $_POST["username"];
 				$email = $_POST["email"];
-				$password = $_POST["password"];
+				$password = Util::hash($_POST["password"]);
+
 				// $user_id = $this->model->user->register($username,$email,$password);
 				$new_user = new User($this->registry);
 				//TODO: check unique and empty username/email
@@ -32,7 +33,6 @@ class HomeController extends BaseController {
 					$this->registry->template->highlight = 'register';
 					$this->registry->template->show('register');
 				}
-
 			};
 		} else {
 			self::index();
@@ -45,9 +45,8 @@ class HomeController extends BaseController {
 				$this->registry->template->show('login');
 			} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$username = $_POST["username"];
-				// TODO: hash and salt
 				$password = $_POST["password"];
-				$user = User::getUserByUsernameAndPassword($username,$password);
+				$user = User::getAuthenticatedUser($username,$password);
 				if ($user != null){
 					$_SESSION['login'] = Array(
 						"id" => $user->id,
