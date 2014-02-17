@@ -1,7 +1,6 @@
 <?php
 
 class TaskController extends BaseController {
-	// TODO: page not found 404 e.g. /task/dsdasd
 	public function index() {
 		if (isset($_SESSION['login'])) {
 			$this->registry->template->highlight = "tasks";

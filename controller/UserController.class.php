@@ -8,7 +8,6 @@ class UserController extends BaseController {
 		if (isset($_SESSION['login'])) {
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$email = $_POST['email'];
-				// TODO: hash and salt
 				$oldpassword = $_POST['oldpassword'];
 				$newpassword = Util::hash($_POST['newpassword']);
 				

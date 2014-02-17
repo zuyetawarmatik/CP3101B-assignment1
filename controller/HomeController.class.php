@@ -53,7 +53,6 @@ class HomeController extends BaseController {
 						"username" => $user->username,
 						"email" => $user->email
 					);
-					// TODO: redirect to all tasks pages
 					header("Location:". __BASE_URL . 'task/index');
 				} else {
 					$this->registry->template->error = "Wrong username or password, or user doesn't exist.";
@@ -69,10 +68,6 @@ class HomeController extends BaseController {
 	public function logout(){
 		unset($_SESSION['login']);
 		header('Location:' . __BASE_URL);
-	}
-	//TODO: remove this method
-	public function test_session(){
-		print_r($_SESSION);
 	}
 }
 

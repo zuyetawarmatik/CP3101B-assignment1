@@ -11,7 +11,7 @@ Class Task extends BaseModel{
 	}
 	public function getEstFinishTime(){
 		if ($this->current_block==0){
-			return "Finish on(est.): Unavailable.";
+			return "Finish on(est.): waiting for 1st work unit to be done.";
 		}else if ($this->blocks == $this->current_block){
 			return "Task completed.";
 		}
@@ -22,9 +22,8 @@ Class Task extends BaseModel{
 		return "Finish on (est.): " . Util::timestampToString($estimated);
 	}
 	public function create() {
-		$stmt = self::$db->prepare("INSERT INTO TASKS (user_id,name,description,blocks,created_time) VALUES (?,?,?,?,(?)::timestamp)");
+		$stmt = self::$db->prepare("INSERT INTO TASKS (user_id,name,description,blocks,created_time) VALUES (?,?,?,?,?);");
 		if ($stmt->execute(array($this->user_id,$this->name,$this->description,$this->blocks,date('Y-m-d H:i:s')))) {
-			//TODO:  update id
 			return true;
 		}else{
 			return false;
