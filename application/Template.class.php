@@ -8,6 +8,7 @@ class Template {
 
 	function __construct($registry) {
 		$this->registry = $registry;
+		$this->vars["highlight"] = -1;
 	}
 	private function escape($value){
 		if(gettype($value)=="array"){
