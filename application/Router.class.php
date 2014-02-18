@@ -35,7 +35,8 @@ class Router {
     	
     	if (!is_readable($this->controllerFile))
     	{
-    		return (new Error404Controller($this->registry))->index();
+				$tmpController = new Error404Controller($this->registry);
+    		return $tmpController->index();
     	}
         
         include $this->controllerFile;
@@ -45,7 +46,8 @@ class Router {
         
         /* Check if the action is callable */
         if (!is_callable(array($controller, $this->action))) {
-        	return (new Error404Controller($this->registry))->index();
+					$tmpController = new Error404Controller($this->registry);
+					return $tmpController->index();
         } else {
             $action = $this->action;
             

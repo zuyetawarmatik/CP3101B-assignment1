@@ -24,7 +24,7 @@ class Template {
 				$value->description = nl2br(htmlentities($value->description));
 				return $value;
 			}else{
-				throw	"Passing unknown object type to view is not allowed.";
+				throw	new Exception("Passing unknown object type to view is not allowed.");
 			}
 		}else {
 			return $value;
