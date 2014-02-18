@@ -24,6 +24,9 @@ class TaskController extends BaseController {
 			$task_id = $_GET['task_id'];
 			if (is_numeric($task_id)) {
 				$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
+				if ($task==null){
+					return (new Error404Controller($this->registry))->index();	
+				}
 				$this->registry->template->task_id = $task_id;
 				$this->registry->template->name = $task->name;
 				$this->registry->template->description = $task->description;
@@ -32,6 +35,8 @@ class TaskController extends BaseController {
 
 				$this->registry->template->highlight = "tasks";
 				$this->registry->template->show('task_edit');
+			}else{
+				return (new Error404Controller($this->registry))->index();	
 			}
 
 		} else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
