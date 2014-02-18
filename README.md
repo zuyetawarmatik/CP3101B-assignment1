@@ -32,7 +32,7 @@ config/database.php
 
 Try accessing the site from __BASE_URL
 ## SoC server URL: 
-https://192.168.20.241/~hvquang
+https://192.168.20.241/~hvquang/assg1/
 
 ## Extra features: 
 1. Revert work unit
