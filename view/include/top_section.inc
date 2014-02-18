@@ -1,3 +1,6 @@
+<?php
+$highlight=isset($highlight)?$highlight:-1;
+ ?>
 <section id="top-section">
 	<div id="top-section-content">
 		<div id="logo"><a href="<?php echo __BASE_URL?>home/index">Tasaka Managara&#8482;</a></div>
