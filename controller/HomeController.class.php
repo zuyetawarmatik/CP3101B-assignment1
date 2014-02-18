@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 
 				$new_user = new User($this->registry);
 				if (!Util::validUsername($username)){
-					$error .= "Username must contain only alpha-numeric characters.\n";
+					$error .= "Username must contain only alpha-numeric characters and is 5-50 characters long.\n";
 				}
 				if (!Util::validEmail($email)){
 					$error .= "Email address is invalid.\n";
