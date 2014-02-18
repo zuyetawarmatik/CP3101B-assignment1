@@ -27,7 +27,6 @@
 	color: #e7555f;
 	text-align: left;
 	font-size: 5rem;
-	font-weight: 600;
 	line-height: 105%;
 }
 
@@ -62,17 +61,20 @@
 #tasks-list > li:not(:first-child) {
 	border-top: 1px #ddd solid;
 }
-#tasks-list > li a {
+#tasks-list > li > a {
 	text-decoration: none;
 }
-#tasks-list > li a > h2 {
-	cursor: pointer; cursor: hand;
-}
-#tasks-list > li h2 {
+
+#tasks-list > li > a > h2 {
+	cursor: pointer;
 	color: #2b9891;
 	font-weight: 600;
 	font-size: 3rem;
 	margin: 0 7rem 2rem;
+}
+
+#tasks-list > li > a:hover > h2 {
+	color: #e7555f;
 }
 
 #tasks-list > li p {
