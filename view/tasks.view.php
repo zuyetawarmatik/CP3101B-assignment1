@@ -11,7 +11,7 @@
 				<div id="title-box">
 
 					<!-- TODO: css to highlight username -->
-					<h1><?php echo $username ?>'s to-do list</h1>
+					<h1><span style="font-weight: 700"><?php echo $username ?>'s</span> to-do list</h1>
 				</div>
 				<div id="btn-box">
 					<a class="button" href='<?php echo __BASE_URL?>task/create'>Add new task</a>

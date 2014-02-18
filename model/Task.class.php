@@ -11,7 +11,7 @@ Class Task extends BaseModel{
 	}
 	public function getEstFinishTime(){
 		if ($this->current_block==0){
-			return "Finish on(est.): Unavailable.";
+			return "Finish on (est.): Unavailable.";
 		}else if ($this->blocks == $this->current_block){
 			return "Task completed.";
 		}
