@@ -35,5 +35,5 @@ Try accessing the site from __BASE_URL
 https://192.168.20.241/~hvquang
 
 ## Extra features: 
-Revert work unit
-Estimate task completion time
+1. Revert work unit
+2. Estimate task completion time
