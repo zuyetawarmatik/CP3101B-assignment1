@@ -74,7 +74,7 @@ Class Task extends BaseModel{
 	//return empty array if no tasks or user found 
 	//TODO: sort completed task at the bottom
 	public static function getTasksByUserId($userid){
-		$stmt = self::$db->prepare("SELECT * FROM TASKS WHERE user_id = ? ORDER BY id");
+		$stmt = self::$db->prepare("SELECT *,(blocks=current_block) as completed FROM TASKS WHERE user_id = ? ORDER BY completed,id");
 		if ($stmt->execute(array($userid))) {
 			$tasks = array();
 			while ($row = $stmt->fetch()) {

@@ -10,7 +10,6 @@
 			<div id="title-section-content">
 				<div id="title-box">
 
-					<!-- TODO: css to highlight username -->
 					<h1><span style="font-weight: 700"><?php echo $username ?>'s</span> to-do list</h1>
 				</div>
 				<div id="btn-box">

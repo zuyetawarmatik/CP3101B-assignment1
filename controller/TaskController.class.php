@@ -35,20 +35,48 @@ class TaskController extends BaseController {
 			}
 
 		} else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
 			$task_id = $_POST['task_id'];
 			$name = $_POST["name"];
 			$desc = $_POST["description"];
 			$blocks = $_POST["blocks"];
+			$error = "";
+			if (!is_numeric($task_id)){
+				$error .= "wrong task_id <br/>";
+			}
+			if (!Util::strLengthLimit($name,1,50)){
+				$error .= "Task name must not be empty or longer than 50.<br/>";
+			}
+			if (!Util::strLengthLimit($desc,1,200)){
+				$error .= "Task description must not be empty or longer than 200.<br/>";
+			}
+			if (!is_numeric($blocks)){
+				$error .= "Blocks must be numeric.";
+			}
 
-			$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
-			if($task!=null){
-				$task->name = $name;
-				$task->description = $desc;
-				$task->blocks = $blocks;
-				$task->current_block = min($task->current_block,$blocks);
-				if($task->save()){
-					header("Location: " . __BASE_URL . "task/");
-				};
+			if($error==""){
+				$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
+				if($task!=null){
+					$task->name = $name;
+					$task->description = $desc;
+					$task->blocks = $blocks;
+					$task->current_block = min($task->current_block,$blocks);
+					if($task->save()){
+						header("Location: " . __BASE_URL . "task/");
+					};
+				}
+			}else{
+
+				$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
+				$this->registry->template->error = $error;
+				$this->registry->template->task_id = $task_id;
+				$this->registry->template->name = $name;
+				$this->registry->template->description = $desc;
+				$this->registry->template->blocks = $blocks;
+				$this->registry->template->current_block = $task->current_block;
+
+				$this->registry->template->highlight = "tasks";
+				$this->registry->template->show('task_edit');
 			}
 		}
 	}
@@ -93,23 +121,41 @@ class TaskController extends BaseController {
 				$this->registry->template->highlight = "tasks";
 				$this->registry->template->show('task_create');
 			} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				$error = "";
 				$name = $_POST["name"];
 				$desc = $_POST["description"];
 				$blocks = $_POST["blocks"];
+				if (!Util::strLengthLimit($name,1,50)){
+					$error .= "Task name must not be empty or longer than 50.<br/>";
+				}
+				if (!Util::strLengthLimit($desc,1,200)){
+					$error .= "Task description must not be empty or longer than 200.<br/>";
+				}
+				if (!is_numeric($blocks)){
+					$error .= "Blocks must be numeric.";
+				}
+				if ($error==""){
+					$task = new Task();
 
-				$task = new Task();
+					$task->user_id =$_SESSION['login']['id'];
+					$task->name =$name;
+					$task->description = $desc;
+					$task->blocks = $blocks;
 
-				$task->user_id =$_SESSION['login']['id'];
-				$task->name =$name;
-				$task->description = $desc;
-				$task->blocks = $blocks;
-
-				if ($task->create()){
-					echo 'saved';
-					header('Location:' . __BASE_URL . 'task/');
+					if ($task->create()){
+						echo 'saved';
+						header('Location:' . __BASE_URL . 'task/');
+					}else{
+						echo 'error';
+					};
 				}else{
-					echo 'error';
-				};
+					$this->registry->template->error = $error;
+					$this->registry->template->blocks = $blocks;
+					$this->registry->template->description = $desc;
+					$this->registry->template->taskname = $name;
+					$this->registry->template->highlight = "tasks";
+					$this->registry->template->show('task_create');
+				}
 			}
 		} else {
 			return (new Error404Controller($this->registry))->index();	

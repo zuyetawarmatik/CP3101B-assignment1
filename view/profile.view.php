@@ -9,13 +9,17 @@
 		<section id="main-section">
 			<div id="main-section-content">
 				<form method="POST" action="<?php echo __BASE_URL?>user/profile">
+					<?php if (isset($error)):?>
+					<div id="error">
+						<?php echo $error?>
+					</div>
+					<?php endif?>
 					<table>
 						<tr>
 							<td>
 							<label for="username" >Username</label>
 							</td>
 							<td>
-								<!-- TODO: Style readonly -->
 								<input type="text" name="username"  readonly value="<?php echo $username?>">
 							</td>
 						</tr>

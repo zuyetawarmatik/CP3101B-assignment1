@@ -148,3 +148,12 @@ button:hover, input[type="submit"]:hover, a.button:hover {
 	border-right: 1px #ddd solid;
 	border-bottom: 1px #ddd solid;
 }
+#error {
+	width: 35rem;
+	margin: 0 auto;
+	text-align: center;
+	background: #E7555F;
+	border-radius: 2rem;
+	padding: 0.5rem 0;
+	color: #fff;
+}

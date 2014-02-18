@@ -9,13 +9,19 @@
 		<section id="main-section">
 			<div id="main-section-content">
 				<form method="POST" action="<?php echo __BASE_URL?>home/register">
+
+					<?php if (isset($error)):?>
+					<div id="error">
+						<?php echo $error?>
+					</div>
+					<?php endif?>
 					<table>
 						<tr>
 							<td>
 								<label for="username">Username</label>
 							</td>
 							<td>
-								<input type="text" name="username">
+								<input type="text" name="username" value="<?php echo isset($username)?$username:"" ?>">
 							</td>
 						</tr>
 						<tr>
@@ -23,7 +29,7 @@
 								<label for="email">Email</label>
 							</td>
 							<td>
-								<input type="email" name="email">
+								<input type="email" name="email" value="<?php echo isset($email)?$email:"" ?>">
 							</td>
 						</tr>
 						<tr>

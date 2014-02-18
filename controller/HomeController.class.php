@@ -16,20 +16,47 @@ class HomeController extends BaseController {
 				$this->registry->template->highlight = 'register';
 				$this->registry->template->show('register');
 			} else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+				$error = "";
 				$username = $_POST["username"];
 				$email = $_POST["email"];
 				$password = Util::hash($_POST["password"]);
 
-				// $user_id = $this->model->user->register($username,$email,$password);
 				$new_user = new User($this->registry);
-				//TODO: check unique and empty username/email
+				if (!Util::validUsername($username)){
+					$error .= "Username must contain only alpha-numeric characters.<br/>";
+				}
+				if (!Util::validEmail($email)){
+					$error .= "Email address is invalid. <br/>";
+				}
+				if (User::usernameExists($username)){
+					$error .= "Username is already in use. <br/>";
+				}
+				if (User::emailExists($email)){
+					$error .= "Email is already in use.<br/>";
+				}
+				if (!Util::validPassword($_POST["password"])){
+					$error .= "Password must not be empty.<br/>";
+				}
+				if ($_POST["password"]!=$_POST["retype_password"]){
+					$error .= "Retype password does not match.<br/>";
+				}
 
-				$new_user->username = $username;
-				$new_user->email = $email;
-				$new_user->password = $password;
-				if ($new_user->create()){
-					header("Location:". __BASE_URL . "home/login");
-				} else{
+
+				if ($error==""){
+
+					$new_user->username = $username;
+					$new_user->email = $email;
+					$new_user->password = $password;
+					if ($new_user->create()){
+						header("Location:". __BASE_URL . "home/login");
+					} else{
+						$this->registry->template->highlight = 'register';
+						$this->registry->template->show('register');
+					}
+				}else{
+					$this->registry->template->error = $error;
+					$this->registry->template->username = $username;
+					$this->registry->template->email = $email;
 					$this->registry->template->highlight = 'register';
 					$this->registry->template->show('register');
 				}

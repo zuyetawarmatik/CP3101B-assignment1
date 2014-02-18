@@ -9,6 +9,11 @@
 		<section id="main-section">
 			<div id="main-section-content">
 				<form method="POST" action="<?php echo __BASE_URL?>task/edit">
+					<?php if (isset($error)):?>
+					<div id="error">
+						<?php echo $error?>
+					</div>
+					<?php endif?>
 					<input type="hidden" name="task_id" value="<?php echo $task_id ?>" />
 					<table>
 						<tr>

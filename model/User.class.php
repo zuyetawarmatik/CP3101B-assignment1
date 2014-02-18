@@ -54,7 +54,31 @@ Class User extends BaseModel{
 		}else{
 			return null;
 		}
+
 	}
+	public static function usernameExists($username){
+		$stmt = self::$db->prepare("SELECT * FROM USERS WHERE username = ?");
+		if ($stmt->execute(array($username))) {
+			while ($row = $stmt->fetch()) {
+				return true;
+			}
+			return false;
+		}else{
+			return null;
+		}
+	}
+	public static function emailExists($email){
+		$stmt = self::$db->prepare("SELECT * FROM USERS WHERE email = ?");
+		if ($stmt->execute(array($email))) {
+			while ($row = $stmt->fetch()) {
+				return true;
+			}
+			return false;
+		}else{
+			return null;
+		}
+	}
+
 
 }
 

@@ -9,13 +9,19 @@
 		<section id="main-section">
 			<div id="main-section-content">
 				<form method="POST" action="<?php echo __BASE_URL?>task/create">
+
+					<?php if (isset($error)):?>
+					<div id="error">
+						<?php echo $error?>
+					</div>
+					<?php endif?>
 					<table>
 						<tr>
 							<td>
 								<label for="name">Name</label>
 							</td>
 							<td>
-								<input type="text" name="name">
+								<input type="text" name="name" value="<?php echo isset($taskname)?$taskname:"" ?>">
 							</td>
 						</tr>
 						<tr>
@@ -23,7 +29,7 @@
 								<label for="description">Description</label>
 							</td>
 							<td>
-								<input type="text" name="description">
+								<input type="text" name="description" value="<?php echo isset($description)?$description:"" ?>">
 							</td>
 						</tr>
 						<tr>
@@ -31,7 +37,7 @@
 								<label for="blocks">Number of 30-min blocks</label>
 							</td>
 							<td>
-								<input type="text" name="blocks">
+								<input type="text" name="blocks" value="<?php echo isset($blocks)?$blocks:"" ?>">
 							</td>
 						</tr>
 						<tr>

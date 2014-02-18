@@ -6,30 +6,50 @@ class UserController extends BaseController {
 	}
 	public function profile() {
 		$this->require_login();
+		$error="";
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$email = $_POST['email'];
 			$oldpassword = $_POST['oldpassword'];
-			$newpassword = Util::hash($_POST['newpassword']);
+			$newpassword = ($_POST['newpassword']);
 
-			if($oldpassword!="" && $newpassword!=""){
+			if (!Util::validEmail($email)){
+				$error .= "Email address is invalid. <br/>";
+			}
+			if($oldpassword!=""){
+				if (!Util::validPassword($_POST["newpassword"])){
+					$error .= "Password must not be empty.<br/>";
+				}
+				if ($_POST["newpassword"]!=$_POST["retype_password"]){
+					$error .= "Retype password does not match.<br/>";
+				}
+			}
+
+			if($oldpassword!=""){
 				$user = User::getAuthenticatedUser($_SESSION['login']['username'],$oldpassword);
 				if (!$user==null){
 					echo $newpassword;
-					$user->password = $newpassword;
+					$user->password = Util::hash($newpassword);
+				}else{
+					$error .= "Wrong password.<br/>";
 				}
 			}else{
 				$user = User::getUserById($_SESSION['login']['id']);
 			}
-			if($user!=null){
-				$user->email = $email;
-				if ($user->save()){
-					$_SESSION['login'] = Array(
-						"id" => $user->id,
-						"username" => $user->username,
-						"email" => $user->email
-					);
-				};
+			if($error!=""){
+				if($user!=null){
+					$user->email = $email;
+					if ($user->save()){
+						$_SESSION['login'] = Array(
+							"id" => $user->id,
+							"username" => $user->username,
+							"email" => $user->email
+						);
+					};
+				}
 			}
+		}
+		if($error!=""){
+			$this->registry->template->error = $error;
 		}
 		$this->registry->template->highlight = "account";
 		$this->registry->template->username = $_SESSION['login']["username"];
