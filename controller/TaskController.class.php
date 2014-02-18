@@ -9,13 +9,14 @@ class TaskController extends BaseController {
 			$this->registry->template->username = $_SESSION['login']['username'];
 			$tasks = Task::getTasksByUserId($_SESSION['login']['id']);
 			$this->registry->template->tasks = $tasks;
-	
+
 			$this->registry->template->show('tasks');
 		} else {
-			return (new Error404Controller($this->registry))->index();	
+			$tmpController = new Error404Controller($this->registry);
+			return $tmpController->index();
 		}
 	}
-	
+
 	public function edit() {
 
 		$this->require_login();
@@ -25,7 +26,8 @@ class TaskController extends BaseController {
 			if (is_numeric($task_id)) {
 				$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
 				if ($task==null){
-					return (new Error404Controller($this->registry))->index();	
+					$tmpController = new Error404Controller($this->registry);
+					return $tmpController->index();
 				}
 				$this->registry->template->task_id = $task_id;
 				$this->registry->template->name = $task->name;
@@ -36,7 +38,8 @@ class TaskController extends BaseController {
 				$this->registry->template->highlight = "tasks";
 				$this->registry->template->show('task_edit');
 			}else{
-				return (new Error404Controller($this->registry))->index();	
+				$tmpController = new Error404Controller($this->registry);
+				return $tmpController->index();
 			}
 
 		} else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -85,7 +88,7 @@ class TaskController extends BaseController {
 			}
 		}
 	}
-	
+
 	public function revertblock(){
 
 		$this->require_login();
@@ -101,7 +104,7 @@ class TaskController extends BaseController {
 			}
 		}
 	}
-	
+
 	public function nextblock(){
 
 		$this->require_login();
@@ -117,7 +120,7 @@ class TaskController extends BaseController {
 			}
 		}
 	}
-	
+
 	public function create() {
 
 		$this->require_login();
@@ -163,7 +166,8 @@ class TaskController extends BaseController {
 				}
 			}
 		} else {
-			return (new Error404Controller($this->registry))->index();	
+			$tmpController = new Error404Controller($this->registry);
+			return $tmpController->index();
 		}
 	}
 }
