@@ -3,7 +3,7 @@ Tasaka Managara
 
 To create schema: 
 
-`sudo -u postgres  psql -U postgres -d cp3101b-1 -a -f schema.`
+`sudo -u postgres  psql -U postgres -d cp3101b-1 -a -f schema.sql`
 
 create a .htacess in the project folder (same folder as index.php)
 
