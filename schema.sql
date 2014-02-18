@@ -1,5 +1,5 @@
-DROP SCHEMA IF EXISTS "public" cascade;
-CREATE SCHEMA "public";
+DROP TABLE IF EXISTS "tasks";
+DROP TABLE IF EXISTS "users";
 
 CREATE SEQUENCE user_id_seq;
 CREATE SEQUENCE task_id_seq;
