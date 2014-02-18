@@ -2,7 +2,7 @@
 class Util {
 	private static $TIME_FORMAT_INPUT = 'Y-m-d H:i:s';
 	private static $TIME_FORMAT_DISPLAY = 'H:i:s d-m-Y';
-	private static $USERNAME_REGEXP = '/^[A-Za-z][A-Za-z0-9]{5,50}$/';
+	private static $USERNAME_REGEXP = '/^[A-Za-z][A-Za-z0-9]{4,50}$/';
 	public static function hash($pass){
 		return crypt($pass);
 	}

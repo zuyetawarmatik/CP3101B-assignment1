@@ -37,7 +37,7 @@ class TaskController extends BaseController {
 
 				$this->registry->template->highlight = "tasks";
 				$this->registry->template->show('task_edit');
-			}else{
+			} else{
 				$tmpController = new Error404Controller($this->registry);
 				return $tmpController->index();
 			}
