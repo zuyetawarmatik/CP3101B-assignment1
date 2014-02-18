@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS "tasks";
 DROP TABLE IF EXISTS "users";
+DROP SEQUENCE IF EXISTS user_id_seq;
+DROP SEQUENCE IF EXISTS task_id_seq;
 
 CREATE SEQUENCE user_id_seq;
 CREATE SEQUENCE task_id_seq;
