@@ -1,7 +1,9 @@
 <?php
 
 class TaskController extends BaseController {
+
 	public function index() {
+		$this->require_login();
 		if (isset($_SESSION['login'])) {
 			$this->registry->template->highlight = "tasks";
 			$this->registry->template->username = $_SESSION['login']['username'];
@@ -15,45 +17,45 @@ class TaskController extends BaseController {
 	}
 	
 	public function edit() {
-		if (isset($_SESSION['login'])) {
-			$user_id = $_SESSION['login']['id'];
-			if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-				$task_id = $_GET['task_id'];
-				if (is_numeric($task_id)) {
-					$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
-					$this->registry->template->task_id = $task_id;
-					$this->registry->template->name = $task->name;
-					$this->registry->template->description = $task->description;
-					$this->registry->template->blocks = $task->blocks;
-					$this->registry->template->current_block = $task->current_block;
-	
-					$this->registry->template->highlight = "tasks";
-					$this->registry->template->show('task_edit');
-				}
-	
-			} else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-				$task_id = $_POST['task_id'];
-				$name = $_POST["name"];
-				$desc = $_POST["description"];
-				$blocks = $_POST["blocks"];
-	
+
+		$this->require_login();
+		$user_id = $_SESSION['login']['id'];
+		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+			$task_id = $_GET['task_id'];
+			if (is_numeric($task_id)) {
 				$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
-				if($task!=null){
-					$task->name = $name;
-					$task->description = $desc;
-					$task->blocks = $blocks;
-					$task->current_block = min($task->current_block,$blocks);
-					if($task->save()){
-						header("Location: " . __BASE_URL . "task/");
-					};
-				}
+				$this->registry->template->task_id = $task_id;
+				$this->registry->template->name = $task->name;
+				$this->registry->template->description = $task->description;
+				$this->registry->template->blocks = $task->blocks;
+				$this->registry->template->current_block = $task->current_block;
+
+				$this->registry->template->highlight = "tasks";
+				$this->registry->template->show('task_edit');
 			}
-		} else {
-			return (new Error404Controller($this->registry))->index();
+
+		} else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+			$task_id = $_POST['task_id'];
+			$name = $_POST["name"];
+			$desc = $_POST["description"];
+			$blocks = $_POST["blocks"];
+
+			$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
+			if($task!=null){
+				$task->name = $name;
+				$task->description = $desc;
+				$task->blocks = $blocks;
+				$task->current_block = min($task->current_block,$blocks);
+				if($task->save()){
+					header("Location: " . __BASE_URL . "task/");
+				};
+			}
 		}
 	}
 	
 	public function revertblock(){
+
+		$this->require_login();
 		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			$user_id = $_SESSION['login']['id'];
 			$task_id = $_GET['task_id'];
@@ -68,6 +70,8 @@ class TaskController extends BaseController {
 	}
 	
 	public function nextblock(){
+
+		$this->require_login();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$task_id = $_POST['task_id'];
 			$task = Task::getTaskById($task_id);
@@ -82,6 +86,8 @@ class TaskController extends BaseController {
 	}
 	
 	public function create() {
+
+		$this->require_login();
 		if (isset($_SESSION['login'])) {
 			if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 				$this->registry->template->highlight = "tasks";
