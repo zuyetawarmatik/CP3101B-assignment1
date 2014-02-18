@@ -13,14 +13,14 @@ class UserController extends BaseController {
 			$newpassword = ($_POST['newpassword']);
 
 			if (!Util::validEmail($email)){
-				$error .= "Email address is invalid. <br/>";
+				$error .= "Email address is invalid.\n";
 			}
 			if($oldpassword!=""){
 				if (!Util::validPassword($_POST["newpassword"])){
-					$error .= "Password must not be empty.<br/>";
+					$error .= "Password must not be empty.\n";
 				}
 				if ($_POST["newpassword"]!=$_POST["retype_password"]){
-					$error .= "Retype password does not match.<br/>";
+					$error .= "Retype password does not match.\n";
 				}
 			}
 
@@ -30,7 +30,7 @@ class UserController extends BaseController {
 					echo $newpassword;
 					$user->password = Util::hash($newpassword);
 				}else{
-					$error .= "Wrong password.<br/>";
+					$error .= "Wrong password.\n";
 				}
 			}else{
 				$user = User::getUserById($_SESSION['login']['id']);

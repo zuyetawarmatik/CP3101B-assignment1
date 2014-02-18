@@ -17,39 +17,23 @@ class Template {
 			}
 			return $escaped;
 		} else if (gettype($value)=="string"){
-			return htmlentities($value);
+			return nl2br(htmlentities($value));
 		}elseif (gettype($value)=="object"){
 			if ($value instanceof Task){
-				$value->name = htmlentities($value->name);
-				$value->description = htmlentities($value->description);
+				$value->name = nl2br(htmlentities($value->name));
+				$value->description = nl2br(htmlentities($value->description));
 				return $value;
 			}else{
 				throw	"Passing unknown object type to view is not allowed.";
 			}
 		}else {
-			$this->vars[$index] = ($value);
+			return $value;
 		}
 	}
 
 	public function __set($index, $value)
 	{
-
 		$this->vars[$index] = $this->escape($value);
-
-		if (gettype($value)=="string"){
-			$this->vars[$index] = htmlentities($value);
-		}elseif (gettype($value)=="object"){
-			if ($value instanceof Task){
-				$value->name = htmlentities($value->name);
-				$value->description = htmlentities($value->description);
-				$this->vars[$index] = ($value);
-			}else{
-				throw	"Passing unknown object type to view is not allowed.";
-			}
-		}else{
-			$this->vars[$index] = ($value);
-		}
-
 	}
 
 	function show($name) {

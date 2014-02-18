@@ -23,22 +23,22 @@ class HomeController extends BaseController {
 
 				$new_user = new User($this->registry);
 				if (!Util::validUsername($username)){
-					$error .= "Username must contain only alpha-numeric characters.<br/>";
+					$error .= "Username must contain only alpha-numeric characters.\n";
 				}
 				if (!Util::validEmail($email)){
-					$error .= "Email address is invalid. <br/>";
+					$error .= "Email address is invalid.\n";
 				}
 				if (User::usernameExists($username)){
-					$error .= "Username is already in use. <br/>";
+					$error .= "Username is already in use.\n";
 				}
 				if (User::emailExists($email)){
-					$error .= "Email is already in use.<br/>";
+					$error .= "Email is already in use.\n";
 				}
 				if (!Util::validPassword($_POST["password"])){
-					$error .= "Password must not be empty.<br/>";
+					$error .= "Password must not be empty.\n";
 				}
 				if ($_POST["password"]!=$_POST["retype_password"]){
-					$error .= "Retype password does not match.<br/>";
+					$error .= "Retype password does not match.\n";
 				}
 
 

@@ -42,13 +42,13 @@ class TaskController extends BaseController {
 			$blocks = $_POST["blocks"];
 			$error = "";
 			if (!is_numeric($task_id)){
-				$error .= "wrong task_id <br/>";
+				$error .= "wrong task_id\n";
 			}
 			if (!Util::strLengthLimit($name,1,50)){
-				$error .= "Task name must not be empty or longer than 50.<br/>";
+				$error .= "Task name must not be empty or longer than 50.\n";
 			}
 			if (!Util::strLengthLimit($desc,1,200)){
-				$error .= "Task description must not be empty or longer than 200.<br/>";
+				$error .= "Task description must not be empty or longer than 200.\n";
 			}
 			if (!is_numeric($blocks)){
 				$error .= "Blocks must be numeric.";
@@ -126,10 +126,10 @@ class TaskController extends BaseController {
 				$desc = $_POST["description"];
 				$blocks = $_POST["blocks"];
 				if (!Util::strLengthLimit($name,1,50)){
-					$error .= "Task name must not be empty or longer than 50.<br/>";
+					$error .= "Task name must not be empty or longer than 50.\n";
 				}
 				if (!Util::strLengthLimit($desc,1,200)){
-					$error .= "Task description must not be empty or longer than 200.<br/>";
+					$error .= "Task description must not be empty or longer than 200.\n";
 				}
 				if (!is_numeric($blocks)){
 					$error .= "Blocks must be numeric.";
