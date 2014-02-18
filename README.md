@@ -9,7 +9,7 @@ config/config.php:
 
 ```
 <?php
-  //NOTE: there is a trailing / at the end if __BASE_URL
+  //NOTE: there is a trailing / at the end of __BASE_URL
   define("__BASE_URL","https://localhost/assg1/");
 ?>
 ```
