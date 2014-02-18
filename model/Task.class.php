@@ -72,7 +72,6 @@ Class Task extends BaseModel{
 
 	//to return an array of tasks of a user
 	//return empty array if no tasks or user found 
-	//TODO: sort completed task at the bottom
 	public static function getTasksByUserId($userid){
 		$stmt = self::$db->prepare("SELECT *,(blocks=current_block) as completed FROM TASKS WHERE user_id = ? ORDER BY completed,id");
 		if ($stmt->execute(array($userid))) {
