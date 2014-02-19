@@ -29,7 +29,7 @@ config/database.php
 	);
 ?>
 ```
-edit .htaccess, fix index.php to /[folder_path]/index.php if needed.
+Edit .htaccess, fix index.php to /[folder_path]/index.php if needed. [e.g. /assg1/index.php?tr=]
 Try accessing the site from __BASE_URL
 ## SoC server URL: 
 https://192.168.20.241/~hvquang/assg1/
