@@ -6,8 +6,8 @@
     $site_path = realpath(dirname(__FILE__));
     define ('__SITE_PATH', $site_path);
     /* Session start */
-    session_start();
     session_save_path(__SITE_PATH.'/session');
+    session_start();
 
     /* Include init.php */
     include 'include/init.php';
