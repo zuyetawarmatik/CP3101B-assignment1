@@ -34,6 +34,10 @@ Try accessing the site from __BASE_URL
 ## SoC server URL: 
 https://192.168.20.241/~hvquang/assg1/
 
+## File permission: 
+The /view/asset folder contains static files to serve user, pleaes allow accessing this folder from the web.
+
+
 ## Extra features: 
 1. Revert work unit
 2. Estimate task completion time
