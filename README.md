@@ -3,8 +3,8 @@ Tasaka Managara
 ## Setup
 
 Import schema.sql
-
-Create a config folder, then make 2 files (change values if needed):
+Create a session folder at project root
+Create a config folder at project root, then make 2 files within this folder (change config values if needed):
 
 config/config.php:
 
