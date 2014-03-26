@@ -1,8 +1,37 @@
 var pagesContent = {
-	"login": {
-		"id": "login",
-		"title": "Login",
-		"mainContent": "<form method='POST' action='' id='login-form'>\
+	index: {
+		id: "index",
+		title: "Tasaka Managara",
+		mainContent: "<div id='main-section-content'>\
+						<ul id='feature-list'>\
+							<li>\
+								<a>\
+									<h1><i>&#57376;</i></h1>\
+									<h2>Fast Task Management</h2>\
+									<p>We maintain a high quality product and aim for consumer productivity.<br>You can create and manage tasks everywhere, everytime in just 1 click.</p>\
+								</a>\
+							</li>\
+							<li>\
+								<a>\
+									<h1><i>&#57350;</i></h1>\
+									<h2>A+ for Usability</h2>\
+									<p>We will never confuse you.<br>No need for a tutorial kickstart, you can jump straight at creating your schedule.</p>\
+								</a>\
+							</li>\
+							<li>\
+								<a>\
+									<h1><i>&#57386;</i></h1>\
+									<h2>Hey You, It's Free!</h2>\
+									<p>Free forever. As this is our freebie to the loved world.</p>\
+								</a>\
+							</li>\
+						</ul>\
+					</div>"
+	},
+	login: {
+		id: "login",
+		title: "Login",
+		mainContent: "<form method='POST' action='' id='login-form'>\
 							<table>\
 								<tr>\
 									<td>\
@@ -31,10 +60,10 @@ var pagesContent = {
 							</table>\
 						</form>"
 	},
-	"register": {
-		"id": "register",
-		"title": "Register",
-		"mainContent": "<form method='POST' action='' id='register-form'>\
+	register: {
+		id: "register",
+		title: "Register",
+		mainContent: "<form method='POST' action='' id='register-form'>\
 							<table>\
 								<tr>\
 									<td>\
@@ -76,8 +105,7 @@ var pagesContent = {
 									</td>\
 								</tr>\
 							</table>\
-						</form>",
-			"css": "register.css"
+						</form>"
 	},
 	
 }
