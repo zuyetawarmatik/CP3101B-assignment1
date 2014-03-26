@@ -1,6 +1,9 @@
 /* General Functions */
-function loadPageContentData() {
-	$.getScript("frontend/js/pages_content.js", loadAllCss);
+function loadPagesContentData() {
+	$.getScript("frontend/js/pages_content.js", function(){
+		handleRefresh();
+		loadAllCss();
+	});
 }
 
 function loadAllCss() {
@@ -12,6 +15,13 @@ function loadAllCss() {
 			  .attr("href", "frontend/css/" + val.css);
 		}
 	});
+}
+
+function handleRefresh() {
+	// TODO: consider hash with input
+	var hash = location.hash; 
+	if (hash != "")
+		changePage($.extend(true, {}, pagesContent[hash.substr(1)]));
 }
 
 function changePage(pageContent, isLoad) {
@@ -48,11 +58,11 @@ function a_click(e) {
 	if ($(this).attr("href") == "" && $(this).data("to") != "")
 		changePage($.extend(true, {}, pagesContent[$(this).data("to")]));
 	else
-		window.location.href = $(this).attr("href");
+		location.href = $(this).attr("href");
 }
 
 /* Actual jQuery Functions */
 $(function() {
-	loadPageContentData();
+	loadPagesContentData();
 	$(document).on("click", "a", a_click);
 });
