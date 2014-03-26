@@ -1,33 +1,35 @@
 /* General Functions */
 function loadPageContentData() {
-	$.getScript("frontend/js/page_content.js", loadAllCss);
+	$.getScript("frontend/js/pages_content.js", loadAllCss);
 			
 }
 
 function loadAllCss() {
-	$.each(pageContent, function(key, val) {
-		$("<link>")
-		  .appendTo($("head"))
-		  .attr({type: "text/css", rel: "stylesheet"})
-		  .attr("href", "frontend/css/" + val.css);
+	$.each(pagesContent, function(key, val) {
+		if (val.css !== undefined) {
+			$("<link>")
+			  .appendTo($("head"))
+			  .attr({type: "text/css", rel: "stylesheet"})
+			  .attr("href", "frontend/css/" + val.css);
+		}
 	});
 }
 
-function changePageTitle(title) {
-	$("title").html(title);
-}
-
-function changePageMainContent(content) {
-	$("#main-section-content").html(content);
+function changePage(pageContent) {
+	// Change page title
+	$("title").html(pageContent.title);
+	
+	// Change main content's page id
+	$("#main-section-content").html(pageContent.mainContent);
+	
+	// Change main content
+	$("#main-section").attr("data-page", pageContent.id);
 }
 
 /* UI Event Functions */
 function navbar_click() {
 	$("#intro-section").hide();
-	
-	var thisPageContent = pageContent[$(this).data("content")];
-	changePageTitle(thisPageContent.title);
-	changePageMainContent(thisPageContent.mainContent);
+	changePage(pagesContent[$(this).data("to")]);
 }
 
 /* Actual jQuery Functions */
