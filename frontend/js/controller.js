@@ -14,7 +14,10 @@ function loadAllCss() {
 	});
 }
 
-function changePage(pageContent) {
+function changePage(pageContent, isLoad) {
+	if (isLoad === undefined) isLoad = true;
+	
+	// Only for index page
 	if (pageContent.id != "index")
 		$("#intro-section").hide();
 	else
@@ -28,13 +31,22 @@ function changePage(pageContent) {
 	
 	// Change main content's page id
 	$("#main-section").attr("data-page", pageContent.id);
+	
+	// Push to history if this is loading (not back)
+	if (isLoad)
+		history.pushState({pageContent: pageContent}, null, "#" + pageContent.id);
+}
+
+window.onpopstate = function(e) {
+	if (e.state)
+		changePage(e.state.pageContent, false); // Because go-back is not a load, won't need pushing new state
 }
 
 /* UI Event Functions */
 function a_click(e) {
 	e.preventDefault(true);
 	if ($(this).attr("href") == "" && $(this).data("to") != "")
-		changePage(pagesContent[$(this).data("to")]);
+		changePage($.extend(true, {}, pagesContent[$(this).data("to")]));
 	else
 		window.location.href = $(this).attr("href");
 }
