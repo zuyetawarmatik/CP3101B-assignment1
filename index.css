@@ -150,7 +150,10 @@ button:hover, input[type="submit"]:hover, a.button:hover {
 }
 
 /* For the form */
-#main-section[data-page='login'], #main-section[data-page='register'], #main-section[data-page='about'] {
+#main-section[data-page='login'],
+#main-section[data-page='register'],
+#main-section[data-page='about'],
+#main-section[data-page='error'] {
 	margin-top: 6rem;
 }
 
@@ -333,3 +336,13 @@ tr:last-child div a.button:hover {
 	font-style: italic;
 	margin: 0 15rem 0;
 }
+
+/* For Error Page */
+#main-section[data-page='error'] #main-section-content > h1 {
+	text-align: center;
+	font-size: 5rem;
+	margin-top: 20rem;
+	margin-bottom: 20rem;
+	font-weight: 600;
+	line-height: 105%;
+}}
