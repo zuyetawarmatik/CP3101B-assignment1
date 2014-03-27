@@ -2,7 +2,7 @@
 #intro-section {
 	margin-top: 6rem;
 	height: 40rem;
-	background: url(../img/index-background-bar.png) no-repeat scroll;
+	background: url(assets/img/index-background-bar.png) no-repeat scroll;
 	background-position: center center;
 	background-size: 100% 100%;
 	box-shadow: 0 -5rem 5rem rgba(146,48,62, 0.2) inset;
