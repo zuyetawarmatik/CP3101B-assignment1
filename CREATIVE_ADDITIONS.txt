@@ -1,3 +1,0 @@
-- Elegant design
-- Allow users to revert workunit (in task_edit page)
-- Estimate task completion time based on current progress
