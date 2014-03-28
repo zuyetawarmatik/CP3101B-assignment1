@@ -1,6 +1,5 @@
 <?php
-$ROOT_DIR = '/var/www/assg1';
-$SITE_URL = 'http://localhost/assg1/';
+
 $DB = array(
 	"port" => 999,
 	"username" => 'db',
@@ -12,12 +11,12 @@ include 'User.class.php';
 include 'Task.class.php';
 
 header('Content-Type: application/json');
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// 	$_POST = json_decode(file_get_contents('php://input'),true);
-// }
-// else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-// 	$_GET = json_decode(file_get_contents('php://input'),true);
-// }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	$_POST = json_decode(file_get_contents('php://input'),true);
+}
+else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	$_GET = json_decode(file_get_contents('php://input'),true);
+}
 
 ?>
 
@@ -55,6 +54,7 @@ $db_conn = DB::getInstance();
 ?>
 
 <?php
+include 'config.others.inc';
 session_save_path($ROOT_DIR . '/service/session');
 session_start();
 ?>

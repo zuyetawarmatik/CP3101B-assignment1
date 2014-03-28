@@ -1,7 +1,14 @@
 <?php 
 class User extends BaseModel{
 
-
+	public function save(){
+		$stmt = self::$db->prepare("UPDATE users SET email = ?, password = ? WHERE id = ?");
+		if ($stmt->execute(array($this->email,$this->password,$this->id))) {
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public static function usernameExists($username){
 		$stmt = self::$db->prepare("SELECT * FROM USERS WHERE username = ?");
 		if ($stmt->execute(array($username))) {
