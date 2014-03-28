@@ -153,7 +153,8 @@ button:hover, input[type="submit"]:hover, a.button:hover {
 #main-section[data-page='login'],
 #main-section[data-page='register'],
 #main-section[data-page='about'],
-#main-section[data-page='error'] {
+#main-section[data-page='error'],
+#main-section[data-page='profile'] {
 	margin-top: 6rem;
 }
 
