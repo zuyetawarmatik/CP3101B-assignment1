@@ -12,12 +12,12 @@ include 'User.class.php';
 include 'Task.class.php';
 
 header('Content-Type: application/json');
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// 	$_POST = json_decode(file_get_contents('php://input'),true);
-// }
-// else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-// 	$_GET = json_decode(file_get_contents('php://input'),true);
-// }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	$_POST = json_decode(file_get_contents('php://input'),true);
+}
+else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	$_GET = json_decode(file_get_contents('php://input'),true);
+}
 
 ?>
 
