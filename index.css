@@ -160,7 +160,7 @@ button:hover, input[type="submit"]:hover, a.button:hover {
 	margin-top: 6rem;
 }
 
-#error {
+#error, #success {
 	width: 40rem;
 	margin: 0 auto;
 	text-align: center;
@@ -168,6 +168,10 @@ button:hover, input[type="submit"]:hover, a.button:hover {
 	border-radius: 2rem;
 	padding: 0.5rem 0;
 	color: #fff;
+}
+
+#success {
+	background: #0acf6a;
 }
 
 table {
