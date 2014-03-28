@@ -1,6 +1,5 @@
 <?php
-$ROOT_DIR = '/var/www/assg1';
-$SITE_URL = 'http://localhost/assg1/';
+
 $DB = array(
 	"port" => 999,
 	"username" => 'db',
@@ -55,6 +54,7 @@ $db_conn = DB::getInstance();
 ?>
 
 <?php
+include 'config.others.inc';
 session_save_path($ROOT_DIR . '/service/session');
 session_start();
 ?>
