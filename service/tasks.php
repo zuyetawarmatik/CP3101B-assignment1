@@ -2,20 +2,23 @@
 include 'include.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-	status(200);
-	print json_encode(array(
-		"tasks" => array(
-			array(
-				"id" => 1,
-				"description" => "buy milk",
-				"num_blocks" => 30,
-			),
-			array(
-				"id" => 2,
-				"description" => "buy eggs",
-				"num_blocks" => 10,
-			)
-		)
-	));
+	if ($_SESSION['login']!=null){
+		status(200);
+
+		$tasks = Task::getTasksByUserId($_SESSION['login']['id']);
+		$task_array = array();
+		foreach ($tasks as $task) {
+			array_push($task_array,array(
+				"id" => $task->id,
+				"description" => $task->description,
+				"num_blocks" => $task->blocks
+			));
+		};
+		print json_encode($task_array);
+	}else{
+		status(401);
+		print "{}";
+	}
+
 }
 ?>
