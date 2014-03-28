@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$password = $_POST["password"];
 	$user = User::getAuthenticatedUser($username,$password);
 	if ($user != null){
+		status(200);
 		$_SESSION['login'] = Array(
 			"id" => $user->id,
 			"username" => $user->username,
@@ -15,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			"username" => $user->username
 		));
 		return;
-		header("Location:". __BASE_URL . 'task/index');
 	} else {
 		status(400);
 		$error = array("Wrong username or password, or user doesn't exist.");

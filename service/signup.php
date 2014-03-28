@@ -2,7 +2,6 @@
 include 'include.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	status(200);
 
 	$error = "";
 	$username = $_POST["username"];
@@ -35,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		));
 		return;
 	}else{
+		status(201);
 		$new_user = new User();
 		$new_user->username = $username;
 		$new_user->email = $email;
