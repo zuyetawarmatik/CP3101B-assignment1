@@ -10,8 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		foreach ($tasks as $task) {
 			array_push($task_array,array(
 				"id" => $task->id,
+				"name" => $task->name,
 				"description" => $task->description,
-				"num_blocks" => $task->blocks
+				"num_blocks" => $task->blocks,
+				"current_block" => $task->current_block,
+				"created_time" => $task->created_time
 			));
 		};
 		print json_encode($task_array);

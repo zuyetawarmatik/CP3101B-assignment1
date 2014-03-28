@@ -22,9 +22,27 @@ Class Task extends BaseModel{
 		return "Finish on (est.): " . Util::timestampToString($estimated);
 	}
 	public function create() {
+		$this->current_block = 0;
+		$this->created_time = date('Y-m-d H:i:s');
 		$stmt = self::$db->prepare("INSERT INTO TASKS (user_id,name,description,blocks,created_time) VALUES (?,?,?,?,?);");
-		if ($stmt->execute(array($this->user_id,$this->name,$this->description,$this->blocks,date('Y-m-d H:i:s')))) {
+		if ($stmt->execute(array($this->user_id,$this->name,$this->description,$this->blocks,$this->created_time))) {
+			$tmp = Task::getTaskById(self::$db->lastInsertId('task_id_seq'));
+			$this->created_time = $tmp->created_time;
+			$this->id = $tmp->id;
 			return true;
+		}else{
+			return false;
+		}
+	}
+	public static function deleteTaskByUserAndId($id,$user_id){
+
+		$stmt = self::$db->prepare("DELETE FROM TASKS WHERE user_id = ? AND id = ?");
+		if ($stmt->execute(array($user_id,$id))) {
+			if($stmt->rowCount()!=0){
+				return true;
+			}else{
+				return false;
+			}
 		}else{
 			return false;
 		}

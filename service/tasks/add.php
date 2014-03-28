@@ -28,18 +28,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		if ($task->create()){
 			status(201);
+			print_r( json_encode(array(
+				"id" => $task->id,
+				"name" => $name,
+				"description" => $desc,
+				"num_blocks" => $blocks,
+				"current_block" => $task->current_block,
+				"created_time" => $task->created_time
+			)));
 		}else{
-			status(500);
+			status(400);
+		print "{}";
 		};
 	}else{
 		status(400);
 		print json_encode($error);
 	}
+	return;
 
-	print json_encode(array(
-		"id" => 1,
-		"description" => "buy milk",
-		"num_blocks" => 30
-	));
 }
 ?>
