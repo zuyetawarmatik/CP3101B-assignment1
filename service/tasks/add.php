@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$desc = $_POST["description"];
 	$blocks = $_POST["blocks"];
 
-
 	if (!Util::strLengthLimit($name,1,50)){
 		array_push ($error, "Task name must not be empty or longer than 50.\n");
 	}
@@ -38,11 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			)));
 		}else{
 			status(400);
-		print "{}";
+			print "{}";
 		};
 	}else{
 		status(400);
-		print json_encode($error);
+		print json_encode(array(
+			"error" => $error
+		));
 	}
 	return;
 
