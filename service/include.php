@@ -9,6 +9,9 @@ $DB = array(
 include 'Util.class.php';
 include 'BaseModel.class.php';
 include 'User.class.php';
+include 'Task.class.php';
+
+header('Content-Type: application/json');
 ?>
 
 <?php
