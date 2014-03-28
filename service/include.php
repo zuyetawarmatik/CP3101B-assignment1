@@ -5,11 +5,47 @@ $DB = array(
 	"port" => 999,
 	"username" => 'db',
 	"password" => 'pass',
-)
+);
+include 'Util.class.php';
+include 'BaseModel.class.php';
+include 'User.class.php';
 ?>
 
 <?php
-session_save_path($ROOT_DIR . '/session');
+?>
+
+<?php
+class DB {
+	/* Singleton */
+
+	private static $instance = NULL;
+
+	private function __construct() {
+		/* Hiding the class initialization function */
+	}
+
+	private function __clone(){
+		/* Hiding the class clone function */
+	}
+
+	public static function getInstance() {
+		include 'config.inc';
+
+		if (!self::$instance)
+		{
+			$db_conn_string = sprintf('%s:host=%s;port=%s;dbname=%s','pgsql','localhost',5432,$db_name);
+			self::$instance = new PDO($db_conn_string,$db_user,$db_password);
+			self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		}
+		return self::$instance;
+	}
+
+}
+$db_conn = DB::getInstance(); 
+?>
+
+<?php
+session_save_path($ROOT_DIR . '/service/session');
 session_start();
 ?>
 
