@@ -155,7 +155,7 @@ button:hover, input[type="submit"]:hover, a.button:hover {
 #main-section[data-page='about'],
 #main-section[data-page='error'],
 #main-section[data-page='profile'],
-#main-section[data-page='task_create'],
+#main-section[data-page='task_add'],
 #main-section[data-page='task_edit'] {
 	margin-top: 6rem;
 }
