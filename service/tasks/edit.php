@@ -2,10 +2,10 @@
 include '../include.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	$task_id = $_POST['task_id'];
+	$task_id = $_POST['id'];
 	$name = $_POST["name"];
 	$desc = $_POST["description"];
-	$blocks = $_POST["blocks"];
+	$blocks = $_POST["num_blocks"];
 	$error = array();
 	if (!is_numeric($task_id)){
 		array_push($error,"wrong task id");
@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		array_push($error,"Blocks must be numeric.");
 	}
 
-	if(count($error)>0){
-		$task = Task::getTaskByIdAndOwnerId($task_id,$user_id);
+	if(count($error)==0){
+		$task = Task::getTaskByIdAndOwnerId($task_id,$_SESSION['login']['id']);
 		if($task!=null){
 			$task->name = $name;
 			$task->description = $desc;
@@ -30,8 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			if($task->save()){
 				status(200);
 				print json_encode(array(
+					"id" => $task->id,
+					"description" => $task->description,
+					"created_time" => $task->created_time,
 					"name" => $name,
-					"desc" => $desc,
+					"description" => $desc,
 					"num_blocks" => $blocks,
 					"current_block" => $task->current_block
 				));
