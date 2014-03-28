@@ -49,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 if(count($error)!=0){
 	status(400);
-	print json_encode($error);
+	print json_encode(array(
+		"error" => $error
+	));
 	return;
 }
 
