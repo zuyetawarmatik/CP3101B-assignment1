@@ -1,8 +1,220 @@
+@media only screen and (min-device-width: 1600px) {
+	html {
+		font-size: 70%;
+	}
+}
+@media only screen and (max-device-width: 1599px) {
+	html {
+		font-size: 62.5%;
+	}
+}
+
+:not(a) {
+	cursor: default;	
+}
+
+::-moz-focus-inner {
+	border: none;
+}
+
+body {
+	background: #fafafa;
+	font-size: 1.6em;
+	font-family: 'Source Sans Pro';
+	font-weight: 300;
+	letter-spacing: 0.5px;
+	line-height: 140%;
+	color: #444;
+}
+
+input {
+	font: inherit;
+}
+
+input[type="text"], input[type="password"], input[type="email"], textarea {
+	border: 1px #ddd solid;
+	padding: 0.5rem 1.5rem;
+	border-radius: 2rem;
+	box-shadow: 1px 1px 1.5px #ccc inset;
+	color: #777;
+	font-style: italic;
+}
+
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover, textarea:hover, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+	background: #ff7a63;
+	color: #fff;
+	transition: background 0.5s ease-out;
+}
+
+button, input[type="submit"], a.button {
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 0.5rem 1.5rem;
+	border-radius: 2rem;
+	border: none;
+	color: white;
+	cursor: pointer;
+	background-color: #e7555f;
+	transition: background 0.5s ease-out;
+}
+
+button:hover, input[type="submit"]:hover, a.button:hover {
+	background-color: #ff7a63;
+	transition: background 0.5s ease-out;
+}
+
+#top-section {
+	position: fixed;
+	height: 6rem;
+	top: 0;
+	width: 100%;
+	background: rgba(255, 240, 225, 0.95);
+	box-shadow: 0 -0.5rem 0.5rem -0.5rem rgba(247,62,62, 0.3) inset;
+}
+
+#top-section-content {
+	width: 96rem;
+	margin: auto;
+}
+
+#logo a {
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 2rem;
+	float: left;
+	margin-top: 1.75rem;
+	display: inline-block;
+	color: #e7555f;
+}
+
+#logo a:hover {
+	text-shadow: 0 0 2rem rgba(255, 255, 255, 0.9);
+}
+
+#nav-bar {
+	display: inline-block;
+	margin-top: 1.5rem;
+	float: right;
+}
+
+#nav-bar ul {
+	float: right;
+	display: inline-block;
+}
+
+#nav-bar ul li {
+	display: inline-block;
+}
+
+#nav-bar ul li a {
+	display: inline-block;
+	margin-left: 0.5rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 600;
+	border: 1px #e7555f solid;
+	padding: 0.5rem 1.5rem;
+	border-radius: 2rem;
+	color: #e7555f;
+	transition: background 0.5s ease-out, color 0.5s ease-out, border 0.5s ease-out;
+}
+
+#nav-bar ul li a:hover, #nav-bar ul li.selected a {
+	transition: background 0.5s ease-out, color 0.5s ease-out, border 0.5s ease-out;
+	background-color: #e7555f;
+	color: white;
+}
+
+#main-section-content {
+	width: 96rem;
+	margin: 0 auto;
+	padding: 2rem 0;
+	border-left: 1px #ddd solid;
+	border-right: 1px #ddd solid;
+	border-bottom: 1px #ddd solid;
+}
+
+#footer-section {
+	border-bottom: 1px #ddd solid;
+}
+
+#footer-section-content {
+	background: #eee;
+	width: 92rem;
+	padding: 1rem 2rem;
+	margin: 0 auto;
+	border-left: 1px #ddd solid;
+	border-right: 1px #ddd solid;
+	border-bottom: 1px #ddd solid;
+}
+
+/* For the form */
+#main-section[data-page='login'],
+#main-section[data-page='register'],
+#main-section[data-page='about'],
+#main-section[data-page='error'],
+#main-section[data-page='profile'],
+#main-section[data-page='task_create'],
+#main-section[data-page='task_edit'] {
+	margin-top: 6rem;
+}
+
+#error {
+	width: 40rem;
+	margin: 0 auto;
+	text-align: center;
+	background: #E7555F;
+	border-radius: 2rem;
+	padding: 0.5rem 0;
+	color: #fff;
+}
+
+table {
+	width: 40rem;
+	margin: 0 auto;
+}
+
+td {
+	padding: 2rem 2rem 2rem 0;
+	vertical-align: middle;
+}
+
+td:first-child {
+	min-width: 10rem;
+}
+
+td:last-child {
+	padding-right: 0;
+	width: 99%;
+}
+
+td:last-child input[type="text"], td:last-child input[type="password"], td:last-child input[type="email"] {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	width: 100%;
+}
+
+tr:last-child div {
+	display: inline-block;
+	float: right;
+}
+
+tr:last-child div a.button {
+	background: #aaa;
+	transition: background 0.5s ease-out;
+}
+
+tr:last-child div a.button:hover {
+	background-color: #ff7a63;
+	transition: background 0.5s ease-out;
+}
+
 /* For Index Page */
 #intro-section {
 	margin-top: 6rem;
 	height: 40rem;
-	background: url(../img/index-background-bar.png) no-repeat scroll;
+	background: url(assets/img/index-background-bar.png) no-repeat scroll;
 	background-position: center center;
 	background-size: 100% 100%;
 	box-shadow: 0 -5rem 5rem rgba(146,48,62, 0.2) inset;
@@ -67,4 +279,73 @@
 	font-weight: 200;
 	font-style: italic;
 	margin: 0 15rem 0;
+}
+
+/* For About Page */
+#main-section[data-page='about'] #main-section-content > h1 {
+	text-align: center;
+	font-size: 5rem;
+	margin-top: 5rem;
+	margin-bottom: 3rem;
+	font-weight: 600;
+}
+
+#creator-list li a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding: 4rem 0;
+}
+
+#creator-list li a:hover {
+	background: #ff7a63;
+	color: white;
+	transition: background 0.3s ease-in;
+}
+
+#creator-list li a:hover .avatar span {
+	border: 1rem white solid;
+}
+
+#creator-list li a .avatar {
+	margin-bottom: 2rem;
+}
+
+#creator-list li a .avatar span {
+	display: block;
+	width: 10rem;
+	height: 10rem;
+	box-shadow: 0 0 0.1rem rgba(121, 121, 121, 0.4);
+	border: 1rem #fff solid;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+
+#creator-list li a .avatar span img {
+	border: 0;
+	width: 100%;
+	border-radius: 50%;
+}
+
+#creator-list li a h2 {
+	font-size: 3rem;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+#creator-list li a p {
+	text-align: center;
+	font-weight: 200;
+	font-style: italic;
+	margin: 0 15rem 0;
+}
+
+/* For Error Page */
+#main-section[data-page='error'] #main-section-content > h1 {
+	text-align: center;
+	font-size: 5rem;
+	margin-top: 20rem;
+	margin-bottom: 20rem;
+	font-weight: 600;
+	line-height: 105%;
 }
