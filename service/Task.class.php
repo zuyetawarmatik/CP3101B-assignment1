@@ -1,6 +1,45 @@
 <?php
 
 Class Task extends BaseModel{
+	public static function getUserTaskStats($user_id){
+		$stmt = self::$db->prepare("SELECT count(*) AS num_tasks, sum(case when current_block=blocks then 1 else 0 end) AS num_finished_tasks, min(created_time) AS start, now() AS now FROM tasks WHERE user_id = ?");
+	
+		if ($stmt->execute(array($user_id))) {
+			while ($row = $stmt->fetch()) {
+
+				$now = $row['now'];
+				$start = $row['start'];
+				$num_tasks = $row['num_tasks'];
+				$num_finished_tasks = $row['num_finished_tasks'];
+				if ($num_finished_tasks==null) return "No tasks in task list.";
+				if ($start==null) return "No task is finished, thus no estimation available.";
+
+				$num_tasks--;
+
+				$now = date_create($now);
+				$start = date_create($start);
+				
+				$days = (int) date_diff($now,$start)->format("%a"); 
+				if ($days==0){
+					$hours = (int) date_diff($now,$start)->format("%h");  
+					if ($hours ==0){
+						$minutes = (int) date_diff($now,$start)->format("%i");  
+						$est = round(($num_tasks/$num_finished_tasks-1)*($minutes)) . " minutes";
+					}else{
+						$est = round(($num_tasks/$num_finished_tasks-1)*($hours)) . " hours";
+					}
+				}else{
+					$est = round(($num_tasks/$num_finished_tasks-1)*($days)) . " days";
+				}
+
+				return sprintf("Finished %d/%d task(s), the remaining %d task(s) is/are estimated be done in %s.",$num_finished_tasks,$num_tasks, $num_tasks-$num_finished_tasks, $est);
+
+
+			}
+		}else{
+			return null;
+		}
+	}
 	public function save(){
 		$stmt = self::$db->prepare("UPDATE tasks SET name = ?, description = ?, blocks = ?, current_block = ? WHERE id = ? ");
 		if ($stmt->execute(array($this->name,$this->description,$this->blocks,$this->current_block,$this->id))) {
