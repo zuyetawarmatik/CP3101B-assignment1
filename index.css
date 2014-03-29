@@ -375,7 +375,7 @@ tr:last-child div a.button:hover {
 	position: fixed;
 	width: 100%;
 	top: 6rem;
-	height: 15rem;
+	height: auto;
 	background: rgba(250, 250, 250, 0.95);
 }
 
@@ -390,7 +390,7 @@ tr:last-child div a.button:hover {
 	float: left;
 	margin-left: 2rem;
 	width: 58rem;
-	height: 15rem;
+	height: 13rem;
 	display: table;
 }
 
@@ -408,7 +408,13 @@ tr:last-child div a.button:hover {
 	width: 36rem;
 	height: 3rem;
 	text-align: right;
-	padding: 6.5rem 0 5.5rem;
+	padding: 5.5rem 0 4.5rem;
+}
+
+#title-section-content #statistic {
+	padding-bottom: 1rem;
+	text-align: center;
+	color: #777;
 }
 
 #btn-box a.button {
