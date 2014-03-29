@@ -56,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		$user = User::getUserById($_SESSION['login']['id']);
 		if ($user!=null){
+			status(200);
 			print json_encode(array(
 				"id" => $user->id,
 				"username" => $user->username,
