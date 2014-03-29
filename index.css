@@ -149,6 +149,22 @@ button:hover, input[type="submit"]:hover, a.button:hover {
 	border-bottom: 1px #ddd solid;
 }
 
+.error-dialog, .success-dialog {
+	position: fixed;
+	bottom: 2rem;
+	width: 40rem;
+	left: calc(50% - 20rem);
+	text-align: center;
+	background: #E7555F;
+	border-radius: 2rem;
+	padding: 0.5rem 0;
+	color: #fff;
+}
+
+.success-dialog {
+	background: #0acf6a;
+}
+
 /* For the form */
 #main-section[data-page='login'],
 #main-section[data-page='register'],
@@ -415,6 +431,11 @@ tr:last-child div a.button:hover {
 	padding: 5rem 0;
 }
 
+#tasks-list > li.focused {
+	background: #fff9ec;
+	transition: background 0.1s ease-in;
+}
+
 #tasks-list > li:not(:first-child) {
 	border-top: 1px #ddd solid;
 }
@@ -432,6 +453,15 @@ tr:last-child div a.button:hover {
 
 #tasks-list > li > a:hover > h2 {
 	color: #e7555f;
+}
+
+#tasks-list .task-del-btn {
+	font-family: 'Simple-Line-Icons';
+	float: right;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	margin-right: 7rem;
+	margin-top: -4.5rem;
 }
 
 #tasks-list > li p {
