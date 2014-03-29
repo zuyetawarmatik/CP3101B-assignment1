@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			"name" => $task->name,
 			"description" => $task->description,
 			"num_blocks" => $task->blocks,
-			"current_block" => $task->current_block
+			"current_block" => $task->current_block,
+			"estimation" => $task->getEstFinishTime()
 		));
 	} else{
 		status(400);
