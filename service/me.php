@@ -9,8 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		));
 	}else{
 		status(401);
-		print json_encode(array(
-		));
+		print '{}';
 	}
 }
 ?>

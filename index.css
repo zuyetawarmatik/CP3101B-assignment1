@@ -149,16 +149,20 @@ button:hover, input[type="submit"]:hover, a.button:hover {
 	border-bottom: 1px #ddd solid;
 }
 
-.success-dialog {
+.error-dialog, .success-dialog {
 	position: fixed;
-	bottom: 5rem;
+	bottom: 2rem;
 	width: 40rem;
-	margin: 0 auto;
+	left: calc(50% - 20rem);
 	text-align: center;
-	background: #0acf6a;
+	background: #E7555F;
 	border-radius: 2rem;
 	padding: 0.5rem 0;
 	color: #fff;
+}
+
+.success-dialog {
+	background: #0acf6a;
 }
 
 /* For the form */
