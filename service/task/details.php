@@ -1,10 +1,10 @@
 <?php
 include '../include.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	if ($_SESSION['login']!=null){
 		status(200);
-		$task_id = $_POST['id'];
+		$task_id = $_REQUEST['id'];
 		$task = Task::getTaskByIdAndOwnerId($task_id,$_SESSION['login']['id']);
 		if ($task==null){
 			status(404);
