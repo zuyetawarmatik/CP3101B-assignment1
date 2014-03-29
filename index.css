@@ -40,7 +40,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
 	font-style: italic;
 }
 
-input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover, textarea:hover, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+input[type="text"]:not(#search):hover, input[type="password"]:hover, input[type="email"]:hover, textarea:hover, input[type="text"]:not(#search):focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
 	background: #ff7a63;
 	color: #fff;
 	transition: background 0.5s ease-out;
@@ -419,8 +419,32 @@ tr:last-child div a.button:hover {
 
 #btn-box a.button {
 	height: 5rem;
-	margin-right: 2rem;
 	margin-top: 10rem;
+}
+
+#btn-box #search {
+	margin-right: 2rem;
+	margin-left: 0.5rem;
+	width: 1.8rem;
+	transition: width 0.4s ease-in;
+} 
+
+#btn-box #search:focus {
+	width: 15rem;
+	transition: width 0.4s ease-in;
+}
+
+#search::-moz-placeholder {
+	font-family: "Simple-Line-Icons";
+	font-style: normal;
+}
+#search::-webkit-input-placeholder {
+	font-family: "Simple-Line-Icons";
+	font-style: normal;
+}
+#search::-ms-input-placeholder {
+	font-family: "Simple-Line-Icons";
+	font-style: normal;
 }
 
 #main-section[data-page='tasks'] {
