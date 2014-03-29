@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 	if($oldpassword!=""){
 		if (!Util::validPassword($_POST["newpassword"])){
-		array_push ($error, "Password must not be empty.\n");
+			array_push ($error, "Password must not be empty.\n");
 		}
 		if ($_POST["newpassword"]!=$_POST["retype_password"]){
-		array_push ($error, "Retype password does not match.\n");
+			array_push ($error, "Retype password does not match.\n");
 		}
 	}
 
@@ -46,13 +46,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			};
 		}
 	}
-}
-if(count($error)!=0){
-	status(400);
-	print json_encode(array(
-		"error" => $error
-	));
-	return;
+	if(count($error)!=0){
+		status(400);
+		print json_encode(array(
+			"error" => $error
+		));
+		return;
+	}
+}elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+		$user = User::getUserById($_SESSION['login']['id']);
+		if ($user!=null){
+			print json_encode(array(
+				"id" => $user->id,
+				"username" => $user->username,
+				"email" => $user->email
+			));
+		}
 }
 
 ?>

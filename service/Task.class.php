@@ -35,7 +35,6 @@ Class Task extends BaseModel{
 		}
 	}
 	public static function deleteTaskByUserAndId($id,$user_id){
-
 		$stmt = self::$db->prepare("DELETE FROM TASKS WHERE user_id = ? AND id = ?");
 		if ($stmt->execute(array($user_id,$id))) {
 			if($stmt->rowCount()!=0){

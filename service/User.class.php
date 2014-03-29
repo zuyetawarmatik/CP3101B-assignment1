@@ -1,6 +1,22 @@
 <?php 
 class User extends BaseModel{
+	public static function getUserById($id){
+		$stmt = self::$db->prepare("SELECT * FROM USERS WHERE id = ?");
+		if ($stmt->execute(array($id))) {
+			while ($row = $stmt->fetch()) {
+				$user = new User();
 
+				$user->username = $row['username'];
+				$user->email = $row['email'];
+				$user->id = $row['id'];
+				$user->password = $row['password'];
+
+				return $user;
+			}
+		}else{
+			return null;
+		}
+	}
 	public function save(){
 		$stmt = self::$db->prepare("UPDATE users SET email = ?, password = ? WHERE id = ?");
 		if ($stmt->execute(array($this->email,$this->password,$this->id))) {
