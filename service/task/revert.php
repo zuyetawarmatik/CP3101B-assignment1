@@ -1,9 +1,9 @@
 <?php
 include '../include.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$user_id = $_SESSION['login']['id'];
-	$task_id = $_GET['id'];
+	$task_id = $_POST['id'];
 	if (!is_numeric($task_id)){
 		status(400);
 		print json_encode(array(
