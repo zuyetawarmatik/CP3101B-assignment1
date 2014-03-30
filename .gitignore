@@ -1,3 +1,2 @@
-config.inc
-config.others.inc
-session/
+/todoAJAX/service/session/
+/todoAJAX/service/config.inc
