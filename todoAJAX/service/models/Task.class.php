@@ -13,6 +13,7 @@ Class Task extends BaseModel{
 				$num_finished_tasks = $row['num_finished_tasks'];
 				if ($num_finished_tasks==null) return "No tasks in task list.";
 				if ($start==null) return "No task is finished, thus no estimation available.";
+				if ($num_finished_tasks == $num_tasks) return "All tasks are done.";
 
 				$now = date_create($now);
 				$start = date_create($start);
