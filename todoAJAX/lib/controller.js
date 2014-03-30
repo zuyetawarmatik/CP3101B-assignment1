@@ -159,6 +159,10 @@ function loadTasks(param) {
 		}
 	});
 	
+	getUserStatistic();
+}
+
+function getUserStatistic() {
 	// Get user statistic
 	$.ajax({
 		url: "service/task/statistic.php",
@@ -190,6 +194,7 @@ function loadTask(param) {
 			$("[name='name']").val(response.name);
 			$("[name='description']").val(response.description);
 			$("[name='blocks']").val(response.blocks);
+			if (response.current_block == 0) $("#task-revert-btn").remove();
 		}
 	});
 }
@@ -348,7 +353,7 @@ function taskEditForm_submit(e) {
 			$("#error").remove();
 		},
 		success: function(response) {
-			$("<div id='success' style='display:none'>Editing task successfully. Redirecting</div>").prependTo("#task-edit-form");
+			$("<div id='success' style='display:none'>Editing task successfully. Redirecting...</div>").prependTo("#task-edit-form");
 			$("#success").slideDown(500);
 			
 			// Redirect to Tasks page
@@ -381,6 +386,7 @@ function taskDelBtn_click(e) {
 			$(".error-dialog").remove();
 		},
 		success: function(response) {
+			getUserStatistic();
 			$("<div class='success-dialog' style='display:none'>Deleting task successfully</div>").prependTo("body");
 			$(".success-dialog").slideDown(500);
 			setTimeout(function(){
@@ -443,6 +449,7 @@ function taskCurrentBlock_click() {
 		type: "POST",
 		data: JSON.stringify(requestJSON),
 		success: function(response) {
+			getUserStatistic();
 			$this.removeClass("task-current-block").addClass("task-done-block");
 			$this.parent().next().find("button").removeClass("task-undone-block").addClass("task-current-block");
 			
