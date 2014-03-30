@@ -14,8 +14,6 @@ Class Task extends BaseModel{
 				if ($num_finished_tasks==null) return "No tasks in task list.";
 				if ($start==null) return "No task is finished, thus no estimation available.";
 
-				$num_tasks--;
-
 				$now = date_create($now);
 				$start = date_create($start);
 				
@@ -24,12 +22,12 @@ Class Task extends BaseModel{
 					$hours = (int) date_diff($now,$start)->format("%h");  
 					if ($hours ==0){
 						$minutes = (int) date_diff($now,$start)->format("%i");  
-						$est = round(($num_tasks/$num_finished_tasks)*($minutes)) . " minutes";
+						$est = round(($num_tasks/$num_finished_tasks-1)*($minutes)) . " minutes";
 					}else{
-						$est = round(($num_tasks/$num_finished_tasks)*($hours)) . " hours";
+						$est = round(($num_tasks/$num_finished_tasks-1)*($hours)) . " hours";
 					}
 				}else{
-					$est = round(($num_tasks/$num_finished_tasks)*($days)) . " days";
+					$est = round(($num_tasks/$num_finished_tasks-1)*($days)) . " days";
 				}
 
 				return sprintf("Finished %d/%d task(s), the remaining %d task(s) is/are estimated be done in %s.",$num_finished_tasks,$num_tasks, $num_tasks-$num_finished_tasks, $est);
