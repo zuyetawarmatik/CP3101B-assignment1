@@ -1,16 +1,12 @@
 <?php
-
-$DB = array(
-	"port" => 999,
-	"username" => 'db',
-	"password" => 'pass',
-);
-include 'Util.class.php';
-include 'BaseModel.class.php';
-include 'User.class.php';
-include 'Task.class.php';
+include 'models/DB.class.php';
+include 'models/BaseModel.class.php';
+include 'models/Util.class.php';
+include 'models/User.class.php';
+include 'models/Task.class.php';
 
 header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$_POST = json_decode(file_get_contents('php://input'),true);
 }
@@ -21,41 +17,11 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 ?>
 
 <?php
-?>
-
-<?php
-class DB {
-	/* Singleton */
-
-	private static $instance = NULL;
-
-	private function __construct() {
-		/* Hiding the class initialization function */
-	}
-
-	private function __clone(){
-		/* Hiding the class clone function */
-	}
-
-	public static function getInstance() {
-		include 'config.inc';
-
-		if (!self::$instance)
-		{
-			$db_conn_string = sprintf('%s:host=%s;port=%s;dbname=%s','pgsql','localhost',5432,$db_name);
-			self::$instance = new PDO($db_conn_string,$db_user,$db_password);
-			self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		}
-		return self::$instance;
-	}
-
-}
 $db_conn = DB::getInstance(); 
 ?>
 
 <?php
-include 'config.others.inc';
-session_save_path($ROOT_DIR . '/service/session');
+session_save_path(__DIR__ . '/session');
 session_start();
 ?>
 
