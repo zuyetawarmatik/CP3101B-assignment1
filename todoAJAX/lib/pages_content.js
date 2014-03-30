@@ -115,32 +115,6 @@ var pagesContent = {
 		highlightMenu: "register",
 		type: LOGGED_OUT_PAGE
 	},
-	about: {
-		title: "About",
-		mainContent: "<h1>Created by</h1>\
-						<ul id='creator-list'>\
-							<li>\
-								<a>\
-									<div class='avatar'>\
-		   								<span><img src='assets/img/zuyetawarmatik.jpg' alt='avatar' /></span>\
-									</div>\
-									<h2>Bui Phuc Duyet</h2>\
-									<p>zuyetawarmatik@github</p>\
-								</a>\
-							</li>\
-							<li>\
-								<a>\
-									<div class='avatar'>\
-		   								<span><img src='assets/img/naviehuynh.jpg' alt='avatar' /></span>\
-									</div>\
-									<h2>Huynh Van Quang</h2>\
-									<p>naviehuynh@github</p>\
-								</a>\
-							</li>\
-						</ul>",
-		highlightMenu: "about",
-		type: GENERAL_PAGE
-	},
 	profile: {
 		title: "Profile",
 		mainContent: "<form method='POST' action='service/profile.php' id='profile-form'>\

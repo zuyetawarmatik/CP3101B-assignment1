@@ -73,14 +73,12 @@ function changePage(pageURLArr, isLoad) {
 					$("#nav-bar").html("<ul>\
 											<li><a href='' data-to='login'>Login</a></li>\
 											<li><a href='' data-to='register'>Register</a></li>\
-											<li><a href='' data-to='about'>About</a></li>\
 										</ul>");
 				else
 					$("#nav-bar").html("<ul>\
 											<li><a href='' data-to='tasks'>Tasks</a></li>\
 											<li><a href='' data-to='profile'>Profile</a></li>\
 											<li><a href='' id='logout-btn'>Logout</a></li>\
-											<li><a href='' data-to='about'>About</a></li>\
 										</ul>");
 				$a = $("#nav-bar li a[data-to='" + pageContent.highlightMenu + "']");
 				$a.parent().addClass("selected");
