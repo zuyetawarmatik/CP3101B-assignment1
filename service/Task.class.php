@@ -24,12 +24,12 @@ Class Task extends BaseModel{
 					$hours = (int) date_diff($now,$start)->format("%h");  
 					if ($hours ==0){
 						$minutes = (int) date_diff($now,$start)->format("%i");  
-						$est = round(($num_tasks/$num_finished_tasks-1)*($minutes)) . " minutes";
+						$est = round(($num_tasks/$num_finished_tasks)*($minutes)) . " minutes";
 					}else{
-						$est = round(($num_tasks/$num_finished_tasks-1)*($hours)) . " hours";
+						$est = round(($num_tasks/$num_finished_tasks)*($hours)) . " hours";
 					}
 				}else{
-					$est = round(($num_tasks/$num_finished_tasks-1)*($days)) . " days";
+					$est = round(($num_tasks/$num_finished_tasks)*($days)) . " days";
 				}
 
 				return sprintf("Finished %d/%d task(s), the remaining %d task(s) is/are estimated be done in %s.",$num_finished_tasks,$num_tasks, $num_tasks-$num_finished_tasks, $est);
