@@ -495,9 +495,9 @@ function taskLi_mouseEnter() {
 function search_Enter(e) {
 	var keycode = (e.keyCode ? e.keyCode : e.which);
 	if (keycode == '13') {
-		var searchVal = $(this).val();
+		var searchVal = $(this).val().toLowerCase();
 		$("#tasks-list > li a h2").each(function() {
-			if ($(this).html().indexOf(searchVal) >= 0) {
+			if ($(this).html().toLowerCase().indexOf(searchVal) >= 0) {
 				var minTop = $("#top-section").height() + $("#title-section").height();
 				$thisLi = $(this).closest("li");
 				$('html, body').animate({
