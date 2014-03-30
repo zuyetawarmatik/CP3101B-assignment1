@@ -2,8 +2,13 @@
 <?php
 include '../include.php';
 
+require_login();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	require_params("id");
+
 	$task_id = $_POST['id'];
+
 	$task = Task::getTaskByIdAndOwnerId($task_id,$_SESSION['login']['id']);
 	if ($task!=null){
 		$task->current_block = min($task->blocks, $task->current_block+1);

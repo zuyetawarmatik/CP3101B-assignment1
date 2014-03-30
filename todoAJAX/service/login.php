@@ -1,6 +1,8 @@
 <?php
 include 'include.php';
 
+require_params(array("username","password"));
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$username = $_POST["username"];
 	$password = $_POST["password"];

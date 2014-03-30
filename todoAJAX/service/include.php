@@ -5,6 +5,17 @@ include 'models/Util.class.php';
 include 'models/User.class.php';
 include 'models/Task.class.php';
 
+if(empty($_SERVER["HTTPS"]) || ($_SERVER["HTTPS"] != "on"))
+{
+
+	$error = array("HTTPS must be used");
+	header(400);
+	print json_encode(array(
+		"error" => $error
+	));
+	exit();
+}
+
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -14,19 +25,44 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	$_GET = json_decode(file_get_contents('php://input'),true);
 }
 
-?>
-
-<?php
 $db_conn = DB::getInstance(); 
-?>
 
-<?php
 session_save_path(__DIR__ . '/session');
 session_start();
 ?>
 
 <?php
-//adopted from http://www.php.net/manual/en/function.http-response-code.php 
+
+if (!function_exists('require_params')) {
+	function require_params($params){
+		if (gettype($params)== "string"){
+			$params = array($params);
+		}
+		$err = array();
+		foreach ($params as $param) {
+			if (empty($_POST[$param]) && empty ($_GET[$param]) && empty ($_REQUEST[$param])){
+				array_push($err, "Missing parameter: ". $param);
+			}
+		}
+		if (count($err)>0){
+			status(400);
+			print json_encode(array(
+				"error" => $err
+			));
+			exit();
+		}
+	}
+}
+
+if (!function_exists('require_login')) {
+	function require_login(){
+		if (empty($_SESSION['login'])){
+			status(401);
+			print "{}";
+			exit();
+		}
+	}
+}
 
 if (!function_exists('status')) {
 	function status($code = NULL) {

@@ -1,6 +1,8 @@
 <?php
 include 'include.php';
 
+require_login();
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	if ($_SESSION['login']!=null){
 		status(200);

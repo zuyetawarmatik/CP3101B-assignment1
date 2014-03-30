@@ -1,7 +1,11 @@
 <?php
 include '../include.php';
 
+require_login();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+	require_params(array("name","description","blocks"));
 
 	$error = array();
 	$name = $_POST["name"];

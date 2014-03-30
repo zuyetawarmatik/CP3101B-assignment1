@@ -2,6 +2,8 @@
 
 include '../include.php';
 
+require_login();
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 	$est = Task::getUserTaskStats($_SESSION['login']['id']);

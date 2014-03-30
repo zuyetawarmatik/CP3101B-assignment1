@@ -1,7 +1,10 @@
 <?php
 include '../include.php';
 
+require_login();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	require_params("id");
 	$user_id = $_SESSION['login']['id'];
 	$task_id = $_POST['id'];
 	if (!is_numeric($task_id)){

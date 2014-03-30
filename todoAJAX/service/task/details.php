@@ -1,9 +1,12 @@
 <?php
 include '../include.php';
 
+require_login();
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	if ($_SESSION['login']!=null){
-		status(200);
+		require_params("id");
+
 		$task_id = $_REQUEST['id'];
 		$task = Task::getTaskByIdAndOwnerId($task_id,$_SESSION['login']['id']);
 		if ($task==null){
@@ -12,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			return;
 		}
 
+		status(200);
 		print json_encode(array(
 				"id" => $task->id,
 				"name" => $task->name,

@@ -1,3 +1,8 @@
+if (window.location.protocol != "https:"){
+	debugger;
+	window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+}
+
 var username = "";
 
 function escapeHTMLTag(str) {

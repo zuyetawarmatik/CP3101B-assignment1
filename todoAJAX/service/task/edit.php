@@ -1,7 +1,9 @@
 <?php
 include '../include.php';
 
+require_login();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	require_params(array("id","name","description","blocks"));
 	$task_id = $_POST['id'];
 	$name = $_POST["name"];
 	$desc = $_POST["description"];
