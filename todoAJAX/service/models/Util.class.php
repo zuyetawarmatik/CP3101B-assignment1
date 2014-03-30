@@ -1,4 +1,7 @@
 <?php 
+// HASH FUNCTION USED: DES-based hash
+// SALT USED: auto-generated in php crypt function, check out ./todoAJAX/service/models/Util.class.php
+
 class Util {
 	private static $TIME_FORMAT_INPUT = 'Y-m-d H:i:s';
 	private static $TIME_FORMAT_DISPLAY = 'H:i:s d-m-Y';
