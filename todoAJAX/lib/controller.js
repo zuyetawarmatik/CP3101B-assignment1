@@ -424,6 +424,7 @@ function taskRevertBtn_click(e) {
 			$("#error").remove();
 		},
 		success: function(response) {
+			if (response.current_block == 0) $("#task-revert-btn").remove();
 			$("<div id='success' style='display:none'>Current done blocks reverted to " + response.current_block + "</div>").prependTo("#task-edit-form");
 			$("#success").slideDown(500);
 			
