@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$task_id = $_POST['id'];
 	$name = $_POST["name"];
 	$desc = $_POST["description"];
-	$blocks = $_POST["num_blocks"];
+	$blocks = $_POST["blocks"];
 	$error = array();
 	if (!is_numeric($task_id)){
 		array_push($error,"wrong task id");
